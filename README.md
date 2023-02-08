@@ -14,10 +14,13 @@ Entre las respuestas obtenidas referentes al tipo de contenido que les gustaría
 
 ## Historias de usuario
 Como usuaria de Unidas, quiero poder visualizar una página de registro para crear una cuenta con mi nombre completo, correo electrónico y contraseña o con mi cuenta de Google.
+
 <a href="https://ibb.co/fnP5TcH"><img src="https://i.ibb.co/4Y5G0Qp/pantalladeregistroordenador.jpg" alt="pantalladeregistroordenador"></a>
+
 Vista de pantalla de registro en ordenador
 
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/5xz91cV/pantalladeregistromovil.jpg" alt="pantalladeregistromovil"></a>
+
 Vista de pantalla de registro en móvil
 # Creando una Red Social
 
