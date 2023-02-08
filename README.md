@@ -17,11 +17,12 @@ Como usuaria de Unidas, quiero poder visualizar una página de registro para cre
 
 <a href="https://ibb.co/fnP5TcH"><img src="https://i.ibb.co/4Y5G0Qp/pantalladeregistroordenador.jpg" alt="pantalladeregistroordenador"></a>
 
-Vista de pantalla de registro en ordenador
+_Vista de pantalla de registro en ordenador_
+
 
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/5xz91cV/pantalladeregistromovil.jpg" alt="pantalladeregistromovil"></a>
 
-Vista de pantalla de registro en móvil
+_Vista de pantalla de registro en móvil_
 # Creando una Red Social
 
 ## Índice
