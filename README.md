@@ -1,3 +1,17 @@
+# Unidas, Single-Page-Application _responsive_
+
+## Definición del producto
+
+### Usuarios
+Unidas es una Single-Page-Application responsive enfocada a feministas, ONG’s y colectivas feministas de Latinoamérica que deseen obtener y compartir información relacionada con feminismo como: educación sexual, cursos, talleres y eventos, DDHH, derechos sexuales y reproductivos, campañas de apoyo, protocolos de seguridad, etc.
+
+### ¿Qué problemas resuelve Unidas, Single-Page-Application _responsive_?
+A través de una encuesta dirigida a nuestro público objetivo, pudimos observar que actualmente no existe una red social enfocada a la comunidad feminista, 
+muchas usuarias de otras redes sociales desean un lugar para encontrar información relacionada con el quehacer feminista en Latinoamérica. 
+Entre las respuestas obtenidas referentes al tipo de contenido que les gustaría observar, destacaron: becas, financiamientos y fondos; convocatorias y eventos; noticias; entretenimiento y recomendaciones de contenido e interfaces relacionadas; proyectos artísticos y de iniciativas de ley, entre otros.
+
+<a href="https://ibb.co/68L3QnC"><img src="https://i.ibb.co/2SHDJn4/Formulario-social-network.jpg" alt="Formulario-social-network"></a>
+
 # Creando una Red Social
 
 ## Índice
