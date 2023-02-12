@@ -1,7 +1,6 @@
 // eslint-disable-next-line max-len
 // Este es el punto de entrada de tu aplicacion, aquí vamos a conectar toda la lógica con lo que se imprime
 import { home } from './components/home.js';
-import { login } from './components/login.js';
 import { register } from './components/register.js';
 
 
@@ -11,7 +10,6 @@ const rootDiv = document.getElementById('root');
 // funcion para las rutas y lo que debe renderizar
 const routes = {
   '/': home,
-  '/login': login,
   '/register': register,
 };
 // función que permite navegar entre distintos layouts
