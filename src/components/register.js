@@ -3,12 +3,9 @@ import { onNavigate } from "../main.js";
 export const register = () => {
   const homeDiv = document.createElement('div');
   const title = document.createElement('h2');
-  
-  const logoUnidas = document.createElement ('img') ;
   const buttonBack = document.createElement('button');
   const buttonRegister = document.createElement('button');
   const buttonGoogle= document.createElement('button');
-
   const labelFullName = document.createElement ('label');
   const inputFullName = document.createElement('input');
   const labelEmail = document.createElement ('label');
