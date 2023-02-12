@@ -1,5 +1,5 @@
 import { onNavigate } from "../main.js";
-
+// Ingresar logo Unidas Preguntar a JC
 export const register = () => {
   const homeDiv = document.createElement('div');
   const title = document.createElement('h2');
