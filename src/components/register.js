@@ -1,4 +1,5 @@
 import { onNavigate } from "../main.js";
+import { home } from "./home.js";
 // Ingresar logo Unidas Preguntar a JC
 export const register = () => {
   const homeDiv = document.createElement('div');
@@ -26,7 +27,7 @@ export const register = () => {
   buttonBack.addEventListener('click', ()=> {
     onNavigate('/');
   });
-
+  
   homeDiv.appendChild(title);
   homeDiv.appendChild(labelFullName);
   homeDiv.appendChild(inputFullName);
