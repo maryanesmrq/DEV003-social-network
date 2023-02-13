@@ -1,7 +1,7 @@
 // aquí van todas las funcionalidades de la pantalla de inicio (iniciar sesión y registrarse)
-import { onNavigate } from "../main.js";
 
-export const home = () => {
+
+export const home = (onNavigate) => {
   const homeDiv = document.createElement('div');
   const title = document.createElement('h2');
   const buttonLogin = document.createElement('button');
@@ -18,9 +18,7 @@ export const home = () => {
   textRegister.textContent = '¿No tienes cuenta?';
   buttonRegister.textContent = 'Registrate dando click aquí';
   title.textContent = 'unidas';
-  buttonLogin.addEventListener('click', ()=> {
-    onNavigate('/login');
-  });
+
   buttonRegister.addEventListener('click', ()=> {
     onNavigate('/register');
   });

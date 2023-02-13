@@ -22,15 +22,15 @@ export const onNavigate = (pathname) => {
   // para que al dar click en iniciar sesión, se elimine la primera carga de Bienvenida
   rootDiv.removeChild(rootDiv.firstChild);
   // insertando appendChild
-  rootDiv.appendChild(routes[pathname]());
+  rootDiv.appendChild(routes[pathname](onNavigate));
 };
 
 const component = routes[window.location.pathname];
 
 window.onpopstate = () => {
   rootDiv.removeChild(rootDiv.firstChild);
-  rootDiv.append(component());
+  rootDiv.append(component(onNavigate));
 }
-rootDiv.appendChild(component());
+rootDiv.appendChild(component(onNavigate));
 
 
