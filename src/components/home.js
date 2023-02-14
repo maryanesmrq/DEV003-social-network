@@ -1,6 +1,5 @@
 // aquí van todas las funcionalidades de la pantalla de inicio (iniciar sesión y registrarse)
 
-
 export const home = (onNavigate) => {
   const homeDiv = document.createElement('div');
   const logo = document.createElement('img');

@@ -1,5 +1,4 @@
-import { home } from "./home.js";
-//import { register } from "../lib/firebase.js";
+import { registerUser } from "../lib/functionFirebase.js";
 
 export const register = (onNavigate) => {
   const registerDiv = document.createElement('div');
@@ -23,13 +22,14 @@ export const register = (onNavigate) => {
   inputPassword.id = 'password';
   buttonBack.textContent = '¿Ya eres miembro de Unidas? Iniciar sesión';
   buttonRegister2.textContent = 'Registrarse';
-  buttonRegister2.onclick = registrar();
+  // buttonRegister2.onclick = registrar();
   buttonGoogle.textContent = 'Continuar con Google';
   title.textContent = '¡Ingresa tus datos y sé parte de nuestra comunidad!';
   logo.src = './logoUnidas.jpg';
 
   buttonRegister2.addEventListener('click', ()=> {
-    onNavigate('/register');
+    registerUser(inputEmail.value, inputPassword.value);
+    onNavigate('/wall');
   });
   buttonBack.addEventListener('click', ()=> {
     onNavigate('/');
@@ -50,13 +50,6 @@ export const register = (onNavigate) => {
   return registerDiv;
 };
 
-function registrar(){
-  //let email = document.getElementById('email').value;
-  //let password = document.getElementById('password').value; 
 
-  //console.log(email);
-  //console.log(password);
-
-};
 
 
