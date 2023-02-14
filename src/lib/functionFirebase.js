@@ -1,5 +1,6 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from './firebase.js';
+import { auth, provider } from './firebase.js';
+import { getAuth, signInWithRedirect } from "firebase/auth";
 
 export const registerUser = (email, password) => {
     createUserWithEmailAndPassword(auth, email, password)
@@ -14,3 +15,6 @@ export const registerUser = (email, password) => {
       // ..
     });
   };
+
+export const authUser = getAuth();
+  signInWithRedirect(auth, provider);
