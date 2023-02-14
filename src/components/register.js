@@ -1,9 +1,8 @@
 import { home } from "./home.js";
 //import { register } from "../lib/firebase.js";
 
-// Ingresar logo Unidas Preguntar a JC
 export const register = (onNavigate) => {
-  const homeDiv = document.createElement('div');
+  const registerDiv = document.createElement('div');
   const title = document.createElement('h2');
   const buttonBack = document.createElement('button');
   const buttonRegister2 = document.createElement('button');
@@ -36,19 +35,19 @@ export const register = (onNavigate) => {
     onNavigate('/');
   });
   
-  homeDiv.appendChild(logo);
-  homeDiv.appendChild(title);
-  homeDiv.appendChild(labelFullName);
-  homeDiv.appendChild(inputFullName);
-  homeDiv.appendChild(labelEmail);
-  homeDiv.appendChild(inputEmail);
-  homeDiv.appendChild(labelPassword);
-  homeDiv.appendChild(inputPassword);
-  homeDiv.appendChild(buttonRegister2);
-  homeDiv.appendChild(buttonGoogle);
-  homeDiv.appendChild(buttonBack);
+  registerDiv.appendChild(logo);
+  registerDiv.appendChild(title);
+  registerDiv.appendChild(labelFullName);
+  registerDiv.appendChild(inputFullName);
+  registerDiv.appendChild(labelEmail);
+  registerDiv.appendChild(inputEmail);
+  registerDiv.appendChild(labelPassword);
+  registerDiv.appendChild(inputPassword);
+  registerDiv.appendChild(buttonRegister2);
+  registerDiv.appendChild(buttonGoogle);
+  registerDiv.appendChild(buttonBack);
 
-  return homeDiv;
+  return registerDiv;
 };
 
 function registrar(){
@@ -59,3 +58,5 @@ function registrar(){
   //console.log(password);
 
 };
+
+

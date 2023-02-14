@@ -2,6 +2,7 @@
 // Este es el punto de entrada de tu aplicacion, aquí vamos a conectar toda la lógica con lo que se imprime
 import { home } from './components/home.js';
 import { register } from './components/register.js';
+import { wall } from './components/wall.js';
 
 
 // acceder al nodo
@@ -11,6 +12,7 @@ const rootDiv = document.getElementById('root');
 const routes = {
   '/': home,
   '/register': register,
+  '/wall': wall,
 };
 // función que permite navegar entre distintos layouts
 export const onNavigate = (pathname) => {
