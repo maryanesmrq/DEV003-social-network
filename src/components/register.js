@@ -31,7 +31,7 @@ export const register = (onNavigate) => {
   });
   buttonGoogle2.addEventListener('click', ()=> {
     registerUserGoogle();
-    onNavigate('/wall');
+    onNavigate('/wall'); 
   });
   buttonBack.addEventListener('click', ()=> {
     onNavigate('/');
