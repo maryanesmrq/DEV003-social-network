@@ -1,4 +1,5 @@
-import { registerUserGoogle } from "../lib/functionFirebase.js";
+import { auth } from "../lib/firebase.js";
+import { registerUserGoogle, loginUser } from "../lib/functionFirebase.js";
 
 export const login = (onNavigate) => {
   const loginDiv = document.createElement('div');
@@ -28,6 +29,8 @@ export const login = (onNavigate) => {
     onNavigate('/wall');
   });
   buttonLogin.addEventListener('click', () => {
+    loginUser(inputEmail.value, inputPassword.value); //Pendiente: ver que funcione la validación de correo y password 
+   
     onNavigate('/wall');
   });
 
