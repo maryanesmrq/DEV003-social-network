@@ -1,7 +1,7 @@
 import { registerUserGoogle } from "../lib/functionFirebase.js";
 
-export const home = (onNavigate) => {
-  const homeDiv = document.createElement('div');
+export const login = (onNavigate) => {
+  const loginDiv = document.createElement('div');
   const logo = document.createElement('img');
   const title = document.createElement('img');
   const buttonLogin = document.createElement('button');
@@ -31,15 +31,15 @@ export const home = (onNavigate) => {
     onNavigate('/wall');
   });
 
-  homeDiv.appendChild(logo);
-  homeDiv.appendChild(title);
-  homeDiv.appendChild(inputEmail);
-  homeDiv.appendChild(inputPassword);
-  homeDiv.appendChild(buttonLogin);
-  homeDiv.appendChild(buttonGoogle);
-  homeDiv.appendChild(textRegister);
-  homeDiv.appendChild(buttonRegister);
+  loginDiv.appendChild(logo);
+  loginDiv.appendChild(title);
+  loginDiv.appendChild(inputEmail);
+  loginDiv.appendChild(inputPassword);
+  loginDiv.appendChild(buttonLogin);
+  loginDiv.appendChild(buttonGoogle);
+  loginDiv.appendChild(textRegister);
+  loginDiv.appendChild(buttonRegister);
   
 
-  return homeDiv;
+  return loginDiv;
 };
