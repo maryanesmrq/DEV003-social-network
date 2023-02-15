@@ -1,4 +1,4 @@
-// aquí van todas las funcionalidades de la pantalla de inicio (iniciar sesión y registrarse)
+import { registerUserGoogle } from "../lib/functionFirebase.js";
 
 export const home = (onNavigate) => {
   const homeDiv = document.createElement('div');
@@ -22,6 +22,10 @@ export const home = (onNavigate) => {
 
   buttonRegister.addEventListener('click', ()=> {
     onNavigate('/register');
+  });
+  buttonGoogle.addEventListener('click', ()=> {
+    registerUserGoogle();
+    onNavigate('/wall');
   });
   buttonLogin.addEventListener('click', () => {
     onNavigate('/wall');
