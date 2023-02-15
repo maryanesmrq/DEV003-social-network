@@ -1,4 +1,4 @@
-import { home } from "./home.js";
+import { login } from "./login.js";
 
 export const wall = (onNavigate) => {
 const wallDiv = document.createElement('div');
