@@ -3,6 +3,7 @@ import { registerUserGoogle, loginUser } from "../lib/functionFirebase.js";
 
 export const login = (onNavigate) => {
   const loginDiv = document.createElement('div');
+  const cuadroBlanco = document.createElement("div");
   const logo = document.createElement('img');
   const title = document.createElement('img');
   const buttonLogin = document.createElement('button');
@@ -12,6 +13,16 @@ export const login = (onNavigate) => {
   const inputEmail = document.createElement('input');
   const inputPassword = document.createElement('input');
   
+  cuadroBlanco.classList = "cuadroBlanco";
+  loginDiv.classList = "loginDiv";
+  logo.classList = "logo";
+  title.classList = "title";
+  buttonLogin.classList = "buttonLogin";
+  buttonGoogle.classList = "buttonGoogle";
+  buttonRegister.classList = "buttonRegister";
+  textRegister.classList = "textRegister";
+  inputEmail.classList = "inputEmail";
+  inputPassword.classList = "inputPassword"
   logo.src = './logoUnidasHome.png';
   title.src ='./unidasLetras.png';
   inputEmail.placeholder = 'Correo electrónico';
@@ -36,6 +47,7 @@ export const login = (onNavigate) => {
 
   loginDiv.appendChild(logo);
   loginDiv.appendChild(title);
+  loginDiv.appendChild(cuadroBlanco);
   loginDiv.appendChild(inputEmail);
   loginDiv.appendChild(inputPassword);
   loginDiv.appendChild(buttonLogin);

@@ -1,3 +1,4 @@
+import { async } from "regenerator-runtime";
 import { registerUser } from "../lib/functionFirebase.js";
 import { registerUserGoogle } from "../lib/functionFirebase.js";
 
@@ -25,36 +26,14 @@ export const register = (onNavigate) => {
   title.textContent = '¡Ingresa tus datos y sé parte de nuestra comunidad!';
   logo.src = './logoUnidas.jpg';
 
-  buttonRegister2.addEventListener('click', ()=> {
-    registerUser(inputEmail.value, inputPassword.value);
-    registerUser.then((userCredential) => {
-      // Signed in 
-      const user = userCredential.user;
-      alert('Si pudiste wey');
-      // ...
-      onNavigate('/wall');
-    })
-    registerUser.catch((error) => {
-      const errorCode = error.code;
-      if (errorCode === 'auth/weak-password'){
-        errorMessage.innerHTML = 'Eres débil pinche contraseña, te van a hackear';
-      }
-      if (errorCode === 'auth/email-already-in-use'){
-        errorMessage.innerHTML = 'El email ya esta en uso';
-      }
-      if (errorCode === 'auth/missing-email'){
-        errorMessage.innerHTML = 'Debes ingresar un email';
-      }
-      if (errorCode === 'auth/internal-error'){
-        errorMessage.innerHTML = 'Debes ingresar una contraseña';
-      }
-      if (errorCode === 'auth/invalid-email'){
-        errorMessage.innerHTML = 'Debes ingresar una email valido';
-      }
-
-      const errorMessage = error.message;
-    });
-    
+  buttonRegister2.addEventListener('click', async ()=> {
+      console.log(typeof registerUser);
+      try { await registerUser(inputEmail.value, inputPassword.value);
+        
+      } catch (error) {
+        console.log('hola');
+        console.log(error);
+      } 
   });
   buttonGoogle2.addEventListener('click', ()=> {
     registerUserGoogle();
@@ -78,4 +57,3 @@ export const register = (onNavigate) => {
 
   return registerDiv;
 };
-
