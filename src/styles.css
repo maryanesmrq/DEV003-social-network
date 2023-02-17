@@ -1,15 +1,14 @@
-*{
-background-image:url('./backgroundMobile.jpg');
+.loginDiv{
+    background: linear-gradient(270.22deg, #fcafff 4.39%, #ffffff 90.98%);
+    background-repeat: none;
 }
 
 .logo { 
-position: absolute;
+
 }
 
-@media (max-width: 9800px){
-    *{
-    
-    background: linear-gradient(270.22deg, #fcafff 4.39%, #ffffff 90.98%);
-    background-repeat: none;
+@media (max-width: 500px){
+    .loginDiv{
+        background-image:url('./backgroundMobile.jpg');
     }
 }
