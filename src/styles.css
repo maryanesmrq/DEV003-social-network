@@ -53,6 +53,15 @@ input{
     background-color: #F38BFE;
     margin-top: 20px;
 }
+.buttonLogin:hover{
+    background-color: black;
+    color: white;
+    cursor:pointer;
+}
+.buttonGoogle:hover{
+    background-color: black;
+    color: white;
+}
 .buttonGoogle{
     width: 170px;
     padding: 2px;
