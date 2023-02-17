@@ -4,33 +4,36 @@ import { registerUserGoogle, loginUser } from "../lib/functionFirebase.js";
 export const login = (onNavigate) => {
   const loginDiv = document.createElement('div');
   const cuadroBlanco = document.createElement("div");
-  const logo = document.createElement('img');
-  const title = document.createElement('img');
+  const logoUnidasHome = document.createElement('img');
+  const unidasLetras = document.createElement('img');
   const buttonLogin = document.createElement('button');
   const buttonGoogle = document.createElement('button');
   const buttonRegister = document.createElement('button');
   const textRegister = document.createElement('h4');
   const inputEmail = document.createElement('input');
   const inputPassword = document.createElement('input');
+  const logoUnidas = document.createElement('img');
   
   cuadroBlanco.classList = "cuadroBlanco";
   loginDiv.classList = "loginDiv";
-  logo.classList = "logo";
-  title.classList = "title";
+  logoUnidasHome.classList = "logoUnidasHome";
+  unidasLetras.classList = "unidasLetras";
   buttonLogin.classList = "buttonLogin";
   buttonGoogle.classList = "buttonGoogle";
   buttonRegister.classList = "buttonRegister";
   textRegister.classList = "textRegister";
   inputEmail.classList = "inputEmail";
   inputPassword.classList = "inputPassword"
-  logo.src = './logoUnidasHome.png';
-  title.src ='./unidasLetras.png';
+  logoUnidasHome.src = './logoUnidasHome.png';
+  unidasLetras.src ='./unidasLetras.png';
   inputEmail.placeholder = 'Correo electrónico';
   inputPassword.placeholder = 'Contraseña';
   buttonLogin.textContent = 'Iniciar sesión';
   buttonGoogle.textContent = 'Iniciar sesión con Google';
   textRegister.textContent = '¿No tienes cuenta?';
   buttonRegister.textContent = 'Registrate dando click aquí';
+  logoUnidas.src ='./logoUnidas.jpg';
+  logoUnidas.classList = "logoUnidas";
 
   buttonRegister.addEventListener('click', ()=> {
     onNavigate('/register');
@@ -45,15 +48,16 @@ export const login = (onNavigate) => {
     onNavigate('/wall');
   });
 
-  loginDiv.appendChild(logo);
-  loginDiv.appendChild(title);
+  loginDiv.appendChild(logoUnidasHome);
+  cuadroBlanco.insertAdjacentElement("beforeend", unidasLetras);
+  cuadroBlanco.insertAdjacentElement("beforeend", logoUnidas);
   loginDiv.appendChild(cuadroBlanco);
-  loginDiv.appendChild(inputEmail);
-  loginDiv.appendChild(inputPassword);
-  loginDiv.appendChild(buttonLogin);
-  loginDiv.appendChild(buttonGoogle);
-  loginDiv.appendChild(textRegister);
-  loginDiv.appendChild(buttonRegister);
+  cuadroBlanco.insertAdjacentElement("beforeend", inputEmail);
+  cuadroBlanco.insertAdjacentElement("beforeend", inputPassword);
+  cuadroBlanco.insertAdjacentElement("beforeend", buttonLogin);
+  cuadroBlanco.insertAdjacentElement("beforeend", buttonGoogle);
+  cuadroBlanco.insertAdjacentElement("beforeend", textRegister);
+  cuadroBlanco.insertAdjacentElement("beforeend", buttonRegister);
   
 
   return loginDiv;

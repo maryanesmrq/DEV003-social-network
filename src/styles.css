@@ -1,14 +1,84 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
 .loginDiv{
     background: linear-gradient(270.22deg, #fcafff 4.39%, #ffffff 90.98%);
     background-repeat: none;
+    height: 600px;
+}
+.logoUnidasHome{
+    position: relative;
+    left: 200px;
+    top: 20px;
+}
+.cuadroBlanco { 
+    width: 320px;
+    height: 400px;
+    background-color: white;
+    border-radius: 20px;
+    z-index: 10;
+    float:right;
+    flex-direction: column;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    position:relative;
+    right: 250px;
+    top: 180px;
+    box-shadow: 4px 0px 4px rgba(0, 0, 0.25, 0.25);
+
+}
+.unidasLetras{
+    align-items: center;
+    width: 50%;
+    margin: 30px 0px;
+}
+.logoUnidas{
+   height: 1px;
+   visibility: hidden;
 }
 
-.logo { 
+input{
+    margin: 6px;
+    padding: 2px;
+    border-radius: 5px;
+    width: 170px;
+}
+.buttonLogin{
+    border: none;
+    width: 170px;
+    padding: 2px;
+    border-radius: 5px;
+    background-color: #F38BFE;
+    margin-top: 20px;
+}
+.buttonGoogle{
+    width: 170px;
+    padding: 2px;
+    border-radius: 5px;
+    margin-top: 10px;
 
 }
-
+.textRegister{
+    margin-top: 40px;
+    text-decoration: underline;
+    font-weight: lighter;
+    font-family: ;
+}
+.buttonRegister{
+    border: 0px;
+    background-color: #ffffff;
+    text-decoration: underline;
+}
 @media (max-width: 500px){
     .loginDiv{
         background-image:url('./backgroundMobile.jpg');
+    }
+    .cuadroBlanco{
+        width: 20px;
+        height: 80px;
+        background-color: white;
+        border: solid red 2px;
     }
 }
