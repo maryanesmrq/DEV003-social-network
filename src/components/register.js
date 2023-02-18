@@ -57,4 +57,3 @@ export const register = (onNavigate) => {
 
   return registerDiv;
 };
-

@@ -42,4 +42,4 @@ export const registerUserGoogle = () => {
 
 export const loginUser = (email, password) => {
 signInWithEmailAndPassword(auth, email, password)
-}; 
+};
