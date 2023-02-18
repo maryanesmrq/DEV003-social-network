@@ -9,14 +9,29 @@ export const registerUser = (email, password) => {
     .then((userCredential) => {
       // Signed in 
       const user = userCredential.user;
+      alert('Si pudiste wey');
       // ...
+      onNavigate('/wall');
     })
     .catch((error) => {
       const errorCode = error.code;
+      if (errorCode === 'auth/weak-password'){
+        throw new Error ('Eres débil pinche contraseña, te van a hackear');
+      }
+      if (errorCode === 'auth/email-already-in-use'){
+        errorMessage.innerHTML = 'El email ya esta en uso';
+      }
+      if (errorCode === 'auth/missing-email'){
+        errorMessage.innerHTML = 'Debes ingresar un email';
+      }
+      if (errorCode === 'auth/internal-error'){
+        errorMessage.innerHTML = 'Debes ingresar una contraseña';
+      }
+      if (errorCode === 'auth/invalid-email'){
+        errorMessage.innerHTML = 'Debes ingresar una email valido';
+      }
+
       const errorMessage = error.message;
-      // ..
-      console.log(errorCode);
-      console.log(errorMessage);
     });
   };
 
