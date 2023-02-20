@@ -3,7 +3,7 @@ import { registerUserGoogle, loginUser } from "../lib/functionFirebase.js";
 
 export const login = (onNavigate) => {
   const loginDiv = document.createElement('div');
-  const cuadroBlanco = document.createElement("div");
+  const cuadroBlanco = document.createElement('div');
   const logoUnidasHome = document.createElement('img');
   const unidasLetras = document.createElement('img');
   const buttonLogin = document.createElement('button');
