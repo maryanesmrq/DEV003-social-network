@@ -7,12 +7,12 @@ export const register = (onNavigate) => {
   const cuadroBlancoRegister = document.createElement("div");
   const logoUnidasHome = document.createElement('img');
   const unidasLetrasRegister = document.createElement('img');
-  const welcomeText = document.createElement('h2'); /*Maryan lo tiene como welcomeText*/ 
+  const welcomeText = document.createElement('h2'); /Maryan lo tiene como welcomeText/ 
   const buttonBack = document.createElement('button');
   const buttonRegister2 = document.createElement('button');
   const buttonGoogle2= document.createElement('button');
-  const labelFullname = document.createElement ('label');
-  const inputFullname = document.createElement('input');
+  const labelFullName = document.createElement ('label');
+  const inputFullName = document.createElement('input');
   const labelEmail = document.createElement ('label');
   const inputEmail = document.createElement('input');
   const labelPassword = document.createElement ('label');
