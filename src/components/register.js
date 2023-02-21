@@ -11,8 +11,8 @@ export const register = (onNavigate) => {
   const buttonBack = document.createElement('button');
   const buttonRegister2 = document.createElement('button');
   const buttonGoogle2= document.createElement('button');
-  const labelFullName = document.createElement ('label');
-  const inputFullName = document.createElement('input');
+  const labelFullname = document.createElement ('label');
+  const inputFullname = document.createElement('input');
   const labelEmail = document.createElement ('label');
   const inputEmail = document.createElement('input');
   const labelPassword = document.createElement ('label');
