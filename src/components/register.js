@@ -7,7 +7,7 @@ export const register = (onNavigate) => {
   const cuadroBlancoRegister = document.createElement("div");
   const logoUnidasHome = document.createElement('img');
   const unidasLetrasRegister = document.createElement('img');
-  const welcomeText = document.createElement('h4');
+  const welcomeText = document.createElement('h2'); /*Maryan lo tiene como welcomeText*/ 
   const buttonBack = document.createElement('button');
   const buttonRegister2 = document.createElement('button');
   const buttonGoogle2= document.createElement('button');
@@ -17,35 +17,37 @@ export const register = (onNavigate) => {
   const inputEmail = document.createElement('input');
   const labelPassword = document.createElement ('label');
   const inputPassword = document.createElement('input');
-  const logoUnidas = document.createElement('img');
-  const alreadyMember = document.createElement('h4');
+  const logoUnidas2 = document.createElement('img'); /*Maryan lo tiene como logoUnidas */
+  const alreadyMember = document.createElement('h4'); /* Maryan lo tiene como alreadyMember */
+  const divSinLogo = document.createElement('div');
 
-  cuadroBlancoRegister.classList = 'cuadroBlancoRegister';
   registerDiv.classList = 'registerDiv';
-  logoUnidasHome.classList = 'logoUnidasHome';
-  unidasLetrasRegister.classList = 'unidasLetrasRegister';
-  welcomeText.classList = 'welcomeText';
-  buttonBack.classList = 'buttonBack';
-  buttonRegister2.classList = 'buttonRegister2';
-  buttonGoogle2.classList = 'buttonGoogle2';
-  labelFullname.classList = 'labelFullname';
-  inputFullname.classList = 'inputFullname';
-  labelEmail.classList = 'labelEmail';
-  inputEmail.classList = 'inputEmail';
-  labelPassword.classList = 'labelPassword';
-  inputPassword.classList = 'inputPassword';
-  alreadyMember.classList = "alreadyMember";
-  logoUnidasHome.src = './logoUnidasHome.png';
-  unidasLetrasRegister.src ='./unidasLetras.png';
-  labelFullname.textContent = 'Nombre y Apellido';
-  inputFullname.id = 'fullName';
+  cuadroBlancoRegister.classList = "cuadroBlancoRegister";
+  labelFullName.textContent = 'Nombre y Apellido';
+  labelFullName.classList = 'labelFullName';
+  inputFullName.id = 'fullName';
   labelEmail.textContent = 'Correo electrónico';
+  labelEmail.classList = 'labelEmail';
   labelPassword.textContent = 'Contraseña';
+  labelPassword.classList = 'labelPassword';
+  buttonBack.textContent = 'Iniciar sesión';
+  buttonBack.classList = 'buttonBack';
   alreadyMember.textContent = '¿Ya eres miembro de Unidas?';
-  buttonBack.textContent =  'Iniciar sesión';
+  alreadyMember.classList = 'alreadyMember';
   buttonRegister2.textContent = 'Registrarse';
+  buttonRegister2.classList = 'buttonRegister2';
   buttonGoogle2.textContent = 'Continuar con Google';
+  buttonGoogle2.classList = 'buttonGoogle2';
   welcomeText.textContent = '¡Ingresa tus datos y sé parte de nuestra comunidad!';
+  welcomeText.classList = 'welcomeText';
+  logoUnidas2.src = './logoUnidas.jpg';
+  logoUnidas2.classList = 'logoUnidas2';
+  divSinLogo.classList = 'divSinLogo';
+  logoUnidasHome.src = './logoUnidasHome.png';
+  logoUnidasHome.classList = 'logoUnidasHome';
+  unidasLetrasRegister.src = './unidasLetras.png';
+  unidasLetrasRegister.classList = 'unidasLetrasRegister';
+
 
   buttonRegister2.addEventListener('click', async ()=> {
       console.log(typeof registerUser);
@@ -64,21 +66,22 @@ export const register = (onNavigate) => {
     onNavigate('/');
   });
   
-  registerDiv.appendChild(logoUnidasHome);
-  cuadroBlancoRegister.insertAdjacentElement("beforeend", unidasLetrasRegister);
-  cuadroBlancoRegister.insertAdjacentElement("beforeend", logoUnidas);
   registerDiv.appendChild(cuadroBlancoRegister);
-  cuadroBlancoRegister.insertAdjacentElement("beforeend", welcomeText);
-  cuadroBlancoRegister.insertAdjacentElement("beforeend", labelFullname);
-  cuadroBlancoRegister.insertAdjacentElement("beforeend", inputFullname);
-  cuadroBlancoRegister.insertAdjacentElement("beforeend", labelEmail);
-  cuadroBlancoRegister.insertAdjacentElement("beforeend", inputEmail);
-  cuadroBlancoRegister.insertAdjacentElement("beforeend", labelPassword);
-  cuadroBlancoRegister.insertAdjacentElement("beforeend", inputPassword);
-  cuadroBlancoRegister.insertAdjacentElement("beforeend", buttonRegister2);
-  cuadroBlancoRegister.insertAdjacentElement("beforeend", buttonGoogle2);
-  cuadroBlancoRegister.insertAdjacentElement("beforeend", alreadyMember);
-  cuadroBlancoRegister.insertAdjacentElement("beforeend", buttonBack);
+  registerDiv.insertAdjacentElement("beforeend", logoUnidasHome);
+  cuadroBlancoRegister.insertAdjacentElement("beforeend", unidasLetrasRegister);
+  cuadroBlancoRegister.insertAdjacentElement("beforeend", logoUnidas2);
+  cuadroBlancoRegister.insertAdjacentElement("beforeend", divSinLogo);
+  divSinLogo.insertAdjacentElement("beforeend", welcomeText);
+  divSinLogo.insertAdjacentElement("beforeend", labelFullName);
+  divSinLogo.insertAdjacentElement("beforeend", inputFullName);
+  divSinLogo.insertAdjacentElement("beforeend", labelEmail);
+  divSinLogo.insertAdjacentElement("beforeend", inputEmail);
+  divSinLogo.insertAdjacentElement("beforeend", labelPassword);
+  divSinLogo.insertAdjacentElement("beforeend", inputPassword);
+  divSinLogo.insertAdjacentElement("beforeend", buttonRegister2);
+  divSinLogo.insertAdjacentElement("beforeend", buttonGoogle2);
+  divSinLogo.insertAdjacentElement("beforeend", alreadyMember);
+  divSinLogo.insertAdjacentElement("beforeend", buttonBack);
 
   return registerDiv;
 };
