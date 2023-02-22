@@ -1,5 +1,5 @@
 import { auth } from "../lib/firebase.js";
-import { registerUserGoogle, loginUser } from "../lib/functionFirebase.js";
+import { registerUserGoogle, loginUser, observador } from "../lib/functionFirebase.js";
 
 export const login = (onNavigate) => {
   const loginDiv = document.createElement('div');
@@ -13,7 +13,9 @@ export const login = (onNavigate) => {
   const inputEmail = document.createElement('input');
   const inputPassword = document.createElement('input');
   const logoUnidas = document.createElement('img');
+  const userNoRegister = document.createElement('div'); 
   
+  userNoRegister.id = 'userNoRegister';
   cuadroBlanco.classList = "cuadroBlanco";
   loginDiv.classList = "loginDiv";
   logoUnidasHome.classList = "logoUnidasHome";
@@ -34,6 +36,7 @@ export const login = (onNavigate) => {
   buttonRegister.textContent = 'Registrate dando click aquí';
   logoUnidas.src ='./logoUnidas.jpg';
   logoUnidas.classList = "logoUnidas";
+  inputPassword.type = 'password';
 
   buttonRegister.addEventListener('click', ()=> {
     onNavigate('/register');
@@ -42,12 +45,30 @@ export const login = (onNavigate) => {
     registerUserGoogle();
     onNavigate('/wall');
   });
-  buttonLogin.addEventListener('click', () => {
-    loginUser(inputEmail.value, inputPassword.value); //Pendiente: ver que funcione la validación de correo y password 
-   
-    onNavigate('/wall');
-  });
 
+ 
+  buttonLogin.addEventListener('click', () => {
+    
+    observador();
+    try { loginUser(inputEmail.value, inputPassword.value) 
+      onNavigate('/wall');
+      console.log('succes');
+    } catch (error) {
+      console.log(error);
+    }
+    console.log(loginUser);
+    // let contenido = document.getElementById('userNoRegister');
+    
+    // if (observador(inputEmail.value, inputPassword.value) === user){
+    //   return onNavigate('/wall');
+    // } else {
+    //   return contenido.innerHTML = 'Usuario no registrado';    
+    // };
+    
+  });
+   
+    
+  
   loginDiv.appendChild(logoUnidasHome);
   cuadroBlanco.insertAdjacentElement("beforeend", unidasLetras);
   cuadroBlanco.insertAdjacentElement("beforeend", logoUnidas);
