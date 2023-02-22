@@ -48,15 +48,38 @@ export const login = (onNavigate) => {
 
  
   buttonLogin.addEventListener('click', () => {
-    
-    observador();
-    try { loginUser(inputEmail.value, inputPassword.value) 
+    // observador();
+    loginUser(inputEmail.value, inputPassword.value).then(() => {
       onNavigate('/wall');
-      console.log('succes');
-    } catch (error) {
-      console.log(error);
-    }
-    console.log(loginUser);
+   
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      if (errorCode === 'auth/weak-password'){
+        errorMessage.innerHTML = 'Eres débil pinche contraseña, te van a hackear';
+      }
+      if (errorCode === 'auth/email-already-in-use'){
+        errorMessage.innerHTML ='El email ya esta en uso';
+      }
+      if (errorCode === 'auth/missing-email'){
+        errorMessage.innerHTML ='Debes ingresar un email';
+      }
+      if (errorCode === 'auth/internal-error'){
+        errorMessage.innerHTML ='Debes ingresar una contraseña';
+      }
+      if (errorCode === 'auth/invalid-email'){
+        errorMessage.innerHTML ='Debes ingresar una email valido';
+      }
+
+      const errorMessage = error.message;
+    })
+});
+      
+    //   console.log('succes');
+    // } catch (error) {
+    //   console.log(error);
+    // }
+    // console.log(loginUser);
     // let contenido = document.getElementById('userNoRegister');
     
     // if (observador(inputEmail.value, inputPassword.value) === user){
@@ -65,7 +88,7 @@ export const login = (onNavigate) => {
     //   return contenido.innerHTML = 'Usuario no registrado';    
     // };
     
-  });
+  // });
    
     
   
