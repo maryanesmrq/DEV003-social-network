@@ -5,34 +5,34 @@ import { getAuth, signInWithRedirect, signInWithEmailAndPassword, onAuthStateCha
 
 
 export const registerUser = (email, password) => {
-    createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      // Signed in 
-      const user = userCredential.user;
-      alert('Si pudiste wey');
-      // ...
-      onNavigate('/wall');
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      if (errorCode === 'auth/weak-password'){
-        throw new Error ('Eres débil pinche contraseña, te van a hackear');
-      }
-      if (errorCode === 'auth/email-already-in-use'){
-        throw new Error ('El email ya esta en uso');
-      }
-      if (errorCode === 'auth/missing-email'){
-        throw new Error ('Debes ingresar un email');
-      }
-      if (errorCode === 'auth/internal-error'){
-        throw new Error ('Debes ingresar una contraseña');
-      }
-      if (errorCode === 'auth/invalid-email'){
-        throw new Error ('Debes ingresar una email valido');
-      }
+return createUserWithEmailAndPassword(auth, email, password)
+    // .then((userCredential) => {
+    //   // Signed in 
+    //   const user = userCredential.user;
+    //   alert('Si pudiste wey');
+    //   // ...
+    //   onNavigate('/wall');
+    // })
+    // .catch((error) => {
+    //   const errorCode = error.code;
+    //   if (errorCode === 'auth/weak-password'){
+    //     throw new Error ('Eres débil pinche contraseña, te van a hackear');
+    //   }
+    //   if (errorCode === 'auth/email-already-in-use'){
+    //     throw new Error ('El email ya esta en uso');
+    //   }
+    //   if (errorCode === 'auth/missing-email'){
+    //     throw new Error ('Debes ingresar un email');
+    //   }
+    //   if (errorCode === 'auth/internal-error'){
+    //     throw new Error ('Debes ingresar una contraseña');
+    //   }
+    //   if (errorCode === 'auth/invalid-email'){
+    //     throw new Error ('Debes ingresar una email valido');
+    //   }
 
-      const errorMessage = error.message;
-    });
+    //   const errorMessage = error.message;
+    // });
   };
 
 export const registerUserGoogle = () => {

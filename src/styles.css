@@ -175,6 +175,10 @@ label{
     color:rgba(0, 0, 0, 0.48);
     justify-content: left;
 }
+p{
+    color: red;
+    width: ;
+}
 @media (max-width: 500px){
 /* -------------------------------- Login en Telefono -------------------------------- */
     .loginDiv, .registerDiv{
