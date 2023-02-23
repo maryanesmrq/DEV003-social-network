@@ -47,7 +47,7 @@ export const register = (onNavigate) => {
   logoUnidasHome.classList = 'logoUnidasHome';
   unidasLetrasRegister.src = './unidasLetras.png';
   unidasLetrasRegister.classList = 'unidasLetrasRegister';
-
+  inputPassword.type = 'password';
 
   buttonRegister2.addEventListener('click', async ()=> {
       console.log(typeof registerUser);
