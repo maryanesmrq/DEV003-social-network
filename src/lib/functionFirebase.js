@@ -1,6 +1,6 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth, provider } from './firebase.js';
-import { getAuth, signInWithRedirect, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { getAuth, signInWithPopup, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 
 
 
@@ -36,7 +36,7 @@ return createUserWithEmailAndPassword(auth, email, password)
   };
 
 export const registerUserGoogle = () => {
-  signInWithRedirect(auth, provider);
+return signInWithPopup(auth, provider);
 };
 
 

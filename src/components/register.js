@@ -22,6 +22,7 @@ export const register = (onNavigate) => {
   const divSinLogo = document.createElement('div');
   const alertEmail = document.createElement('p');
   const alertPassword = document.createElement('p');
+  const alertEmpty = document.createElement('p');
 
 
   registerDiv.classList = 'registerDiv';
@@ -53,32 +54,42 @@ export const register = (onNavigate) => {
   inputPassword.type = 'password';
 
   buttonRegister2.addEventListener('click', () => {
-    registerUser(inputEmail.value, inputPassword.value).then(() => {
-      onNavigate('/wall');
-   
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      if (errorCode === 'auth/weak-password'){
-        alertPassword.innerHTML = 'Eres débil pinche contraseña, te van a hackear';
-      }
-      if (errorCode === 'auth/email-already-in-use'){
-        alertEmail.innerHTML ='El email ya esta en uso';
-      }
-      if (errorCode === 'auth/missing-email'){
-        alertEmail.innerHTML = 'Debes ingresar un email';
-      }
-      if (errorCode === 'auth/internal-error'){
-        alertPassword.innerHTML ='Debes ingresar una contraseña';
-      }
-      if (errorCode === 'auth/invalid-email'){
-        alertEmail.innerHTML ='Debes ingresar un email valido puto';
-      }
-    });   
+    alertEmail.innerHTML = '';
+    alertPassword.innerHTML = '';
+    alertEmpty.innerHTML = '';
+    if(inputEmail.value !== '' && inputPassword.value !== ''){
+      registerUser(inputEmail.value, inputPassword.value).then(() => {
+        onNavigate('/wall');
+     
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        if (errorCode === 'auth/weak-password'){
+          alertPassword.innerHTML = 'Eres débil pinche contraseña, te van a hackear';
+        }
+        if (errorCode === 'auth/email-already-in-use'){
+          alertEmail.innerHTML ='El email ya esta en uso';
+        }
+        if (errorCode === 'auth/missing-email'){
+          alertEmail.innerHTML = 'Debes ingresar un email';
+        }
+        if (errorCode === 'auth/internal-error'){
+          alertPassword.innerHTML ='Debes ingresar una contraseña';
+        }
+        if (errorCode === 'auth/invalid-email'){
+          alertEmail.innerHTML ='Debes ingresar un email valido puto';
+        }
+      });   
+    }else{
+      alertEmpty.innerHTML = 'Ningun campo debe quedar vacío';
+    }
+    
 });
   buttonGoogle2.addEventListener('click', ()=> {
-    registerUserGoogle();
-    onNavigate('/wall'); 
+    registerUserGoogle().then(() => {
+      onNavigate('/wall'); 
+    })
+    
   });
   buttonBack.addEventListener('click', ()=> {
     onNavigate('/');
@@ -98,6 +109,7 @@ export const register = (onNavigate) => {
   divSinLogo.insertAdjacentElement("beforeend", labelPassword);
   divSinLogo.insertAdjacentElement("beforeend", inputPassword);
   divSinLogo.insertAdjacentElement("beforeend", alertPassword);
+  divSinLogo.insertAdjacentElement("beforeend", alertEmpty);
   divSinLogo.insertAdjacentElement("beforeend", buttonRegister2);
   divSinLogo.insertAdjacentElement("beforeend", buttonGoogle2);
   divSinLogo.insertAdjacentElement("beforeend", alreadyMember);
