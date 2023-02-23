@@ -45,12 +45,25 @@ export const login = (onNavigate) => {
     onNavigate('/register');
   });
   buttonGoogle.addEventListener('click', ()=> {
-    registerUserGoogle();
-    onNavigate('/wall');
+    registerUserGoogle().then(() => {
+      onNavigate('/wall'); 
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      if (errorCode === 'auth/user-not-found'){
+        alertCorreo.innerHTML = 'Usuario no registrado';
+      }
+      if (errorCode === 'auth/wrong-password'){
+        alertContrasena.innerHTML = 'Contraseña no coincide con la registrada';
+      }      
+    });
+    
   });
 
  
   buttonLogin.addEventListener('click', () => {
+    alertContrasena.innerHTML = '';
+    alertCorreo.innerHTML = '';
     loginUser(inputEmail.value, inputPassword.value).then(() => {
       onNavigate('/wall');
     })
