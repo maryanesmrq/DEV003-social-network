@@ -14,7 +14,10 @@ export const login = (onNavigate) => {
   const inputPassword = document.createElement('input');
   const logoUnidas = document.createElement('img');
   const userNoRegister = document.createElement('div'); 
-  
+  const alertCorreo = document.createElement('p');
+  const alertContrasena = document.createElement('p');
+
+
   userNoRegister.id = 'userNoRegister';
   cuadroBlanco.classList = "cuadroBlanco";
   loginDiv.classList = "loginDiv";
@@ -48,31 +51,18 @@ export const login = (onNavigate) => {
 
  
   buttonLogin.addEventListener('click', () => {
-    // observador();
     loginUser(inputEmail.value, inputPassword.value).then(() => {
       onNavigate('/wall');
-   
     })
     .catch((error) => {
       const errorCode = error.code;
-      if (errorCode === 'auth/weak-password'){
-        errorMessage.innerHTML = 'Eres débil pinche contraseña, te van a hackear';
+      if (errorCode === 'auth/user-not-found'){
+        alertCorreo.innerHTML = 'Usuario no registrado';
       }
-      if (errorCode === 'auth/email-already-in-use'){
-        errorMessage.innerHTML ='El email ya esta en uso';
-      }
-      if (errorCode === 'auth/missing-email'){
-        errorMessage.innerHTML ='Debes ingresar un email';
-      }
-      if (errorCode === 'auth/internal-error'){
-        errorMessage.innerHTML ='Debes ingresar una contraseña';
-      }
-      if (errorCode === 'auth/invalid-email'){
-        errorMessage.innerHTML ='Debes ingresar una email valido';
-      }
-
-      const errorMessage = error.message;
-    })
+      if (errorCode === 'auth/wrong-password'){
+        alertContrasena.innerHTML = 'Contraseña no coincide con la registrada';
+      }      
+    });
 });
       
     //   console.log('succes');
@@ -97,7 +87,9 @@ export const login = (onNavigate) => {
   cuadroBlanco.insertAdjacentElement("beforeend", logoUnidas);
   loginDiv.appendChild(cuadroBlanco);
   cuadroBlanco.insertAdjacentElement("beforeend", inputEmail);
+  cuadroBlanco.insertAdjacentElement("beforeend", alertCorreo);
   cuadroBlanco.insertAdjacentElement("beforeend", inputPassword);
+  cuadroBlanco.insertAdjacentElement("beforeend", alertContrasena);
   cuadroBlanco.insertAdjacentElement("beforeend", buttonLogin);
   cuadroBlanco.insertAdjacentElement("beforeend", buttonGoogle);
   cuadroBlanco.insertAdjacentElement("beforeend", textRegister);

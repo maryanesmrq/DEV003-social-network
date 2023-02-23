@@ -20,6 +20,9 @@ export const register = (onNavigate) => {
   const logoUnidas2 = document.createElement('img'); /*Maryan lo tiene como logoUnidas */
   const alreadyMember = document.createElement('h4'); /* Maryan lo tiene como alreadyMember */
   const divSinLogo = document.createElement('div');
+  const alertEmail = document.createElement('p');
+  const alertPassword = document.createElement('p');
+
 
   registerDiv.classList = 'registerDiv';
   cuadroBlancoRegister.classList = "cuadroBlancoRegister";
@@ -49,15 +52,30 @@ export const register = (onNavigate) => {
   unidasLetrasRegister.classList = 'unidasLetrasRegister';
   inputPassword.type = 'password';
 
-  buttonRegister2.addEventListener('click', async ()=> {
-      console.log(typeof registerUser);
-      try { await registerUser(inputEmail.value, inputPassword.value);
-        
-      } catch (error) {
-        console.log('hola');
-        console.log(error);
-      } 
-  });
+  buttonRegister2.addEventListener('click', () => {
+    registerUser(inputEmail.value, inputPassword.value).then(() => {
+      onNavigate('/wall');
+   
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      if (errorCode === 'auth/weak-password'){
+        alertPassword.innerHTML = 'Eres débil pinche contraseña, te van a hackear';
+      }
+      if (errorCode === 'auth/email-already-in-use'){
+        alertEmail.innerHTML ='El email ya esta en uso';
+      }
+      if (errorCode === 'auth/missing-email'){
+        alertEmail.innerHTML = 'Debes ingresar un email';
+      }
+      if (errorCode === 'auth/internal-error'){
+        alertPassword.innerHTML ='Debes ingresar una contraseña';
+      }
+      if (errorCode === 'auth/invalid-email'){
+        alertEmail.innerHTML ='Debes ingresar un email valido puto';
+      }
+    });   
+});
   buttonGoogle2.addEventListener('click', ()=> {
     registerUserGoogle();
     onNavigate('/wall'); 
@@ -76,8 +94,10 @@ export const register = (onNavigate) => {
   divSinLogo.insertAdjacentElement("beforeend", inputFullName);
   divSinLogo.insertAdjacentElement("beforeend", labelEmail);
   divSinLogo.insertAdjacentElement("beforeend", inputEmail);
+  divSinLogo.insertAdjacentElement("beforeend", alertEmail);
   divSinLogo.insertAdjacentElement("beforeend", labelPassword);
   divSinLogo.insertAdjacentElement("beforeend", inputPassword);
+  divSinLogo.insertAdjacentElement("beforeend", alertPassword);
   divSinLogo.insertAdjacentElement("beforeend", buttonRegister2);
   divSinLogo.insertAdjacentElement("beforeend", buttonGoogle2);
   divSinLogo.insertAdjacentElement("beforeend", alreadyMember);
