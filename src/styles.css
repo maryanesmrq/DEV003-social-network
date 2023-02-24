@@ -22,7 +22,6 @@
     float:right;
     flex-direction: column;
     display:flex;
-    flex-direction: column;
     align-items: center;
     position:relative;
     right: 400px;
@@ -59,15 +58,15 @@ input{
     color: white;
     cursor:pointer;
 }
-.buttonGoogle:hover{
-    background-color: black;
-    color: white;
-}
 .buttonGoogle{
     width: 170px;
     padding: 2px;
     border-radius: 5px;
     margin-top: 10px;
+}
+.buttonGoogle:hover{
+    background-color: black;
+    color: white;
 }
 .textRegister{
     margin-top: 40px;
@@ -135,15 +134,15 @@ input{
     color: white;
     cursor:pointer;
 }
-.buttonGoogle2:hover{
-    background-color: black;
-    color: white;
-}
 .buttonGoogle2{
     width: 170px;
     padding: 2px;
     border-radius: 5px;
     margin-top: 10px;
+}
+.buttonGoogle2:hover{
+    background-color: black;
+    color: white;
 }
 .alreadyMember{
     margin-top: 20px;
@@ -235,22 +234,22 @@ p{
         margin-top: 35px;
         display: block;
     }
+    .buttonGoogle {
+        width: 180px;
+        padding: 2px;
+        border-radius: 5px;
+        display: block;
+        margin-top: 20px;
+        margin-bottom: 25px;
+        background-color: #ffffff;
+    }
     .buttonLogin:hover,
     .buttonGoogle:hover {
         background-color: #7704d0;
         color: white;
         cursor: pointer;
     }
-    .buttonGoogle {
-        width: 180px;
-        padding: 2px;
-        border-radius: 5px;
-        margin-top: 10px;
-        display: block;
-        margin-top: 20px;
-        margin-bottom: 25px;
-        background-color: #ffffff;
-    }
+    
     .textRegister {
         font-weight: lighter;
         margin: top 40px;
@@ -309,15 +308,6 @@ p{
     .labelFullName, .labelEmail, .labelPassword{
         display: block;
     }
-    input{
-        margin: 6px;
-        padding: 5px;
-        width: 170px;
-        background: #d9d9d9;
-        border-radius: 5px;
-        border: none;
-    }
-    
     .buttonRegister2{
         border:  #F38BFE solid 2px;
         width: 180px;
@@ -333,7 +323,6 @@ p{
         width: 180px;
         padding: 2px;
         border-radius: 5px;
-        margin-top: 10px;
         display: block;
         margin-top: 20px;
         margin-bottom: 25px;

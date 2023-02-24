@@ -1,14 +1,39 @@
 // importamos la funcion que vamos a testear
-import { login } from '../src/components/login.js';
+import {
+  // eslint-disable-next-line import/named
+  login, loginUser, inputEmail, inputPassword, alertEmpty,
+} from '../src/components/login.js';
 
+jest.mock('../src/lib/firebase', () => ({ loginUser: () => Promise.reject() }));
+
+// Corroborar que sea una función
 describe('login', () => {
   it('debería ser una función', () => {
-    expect(typeof myFunction).toBe('function');
+    expect(typeof login).toBe('function');
   });
 });
 
-// se puede testear si se creo un div o un p, etc, de forma correcta llamando al ID o Class 
+// Corroborar que la alerta aparezca en pantalla y sea la correcta
+describe('Error', () => {
+  it('debería dar error por campos vacíos', () => {
+    expect(alertEmpty.innerHTML).toEqual('Ningun campo debe quedar vacío');
+  });
+});
 
-// al dar clic en un boton los eventlistener hagan lo que deba hacer 
+// Corroborar que al dar clic redireccione a la pantalla correcta
+describe('buttonLogin', () => {
+  it('debería poder ingresar a wall si el usuario existe', () => {
+    expect(loginUser(inputEmail.value, inputPassword.value)).toBeCalled('/wall');
+  });
+});
 
-// que exista y que se hagan los llamados correspondientes 
+// Testear la creación de un div o p de forma correcta llamando al ID o Class
+describe('div', () => {
+  it('debería corroborar que se cree el div de forma correcta', () => {
+    expect(document.getElementById('userNoRegister')).toBe('div');
+  });
+});
+
+// al dar clic en un boton los eventlistener hagan lo que deba hacer
+
+// que exista y que se hagan los llamados correspondientes
