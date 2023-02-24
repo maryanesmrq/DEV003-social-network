@@ -4,7 +4,6 @@ import { login } from './components/login.js';
 import { register } from './components/register.js';
 import { wall } from './components/wall.js';
 
-
 // acceder al nodo
 const rootDiv = document.getElementById('root');
 
@@ -32,7 +31,5 @@ const component = routes[window.location.pathname];
 window.onpopstate = () => {
   rootDiv.removeChild(rootDiv.firstChild);
   rootDiv.append(component(onNavigate));
-}
+};
 rootDiv.appendChild(component(onNavigate));
-
-
