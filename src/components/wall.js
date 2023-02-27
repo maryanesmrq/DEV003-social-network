@@ -1,5 +1,6 @@
 export const wall = (onNavigate) => {
   const wallDiv = document.createElement('div');
+  const cuadroBlancoWall = document.createElement('div');
   const logo = document.createElement('img');
   const logOut = document.createElement('button');
   // const profilePic = document.createElement('img');
@@ -8,10 +9,15 @@ export const wall = (onNavigate) => {
   const editPost = document.createElement('button');
   const deletePost = document.createElement('button');
 
-  logo.src = './logoUnidas.jpg';
+  cuadroBlancoWall.classList = 'cuadroBlancoWall';
+  wallDiv.classList = 'wallDiv';
+  logo.classList = 'logoWall';
+  logOut.classList = 'logOut';
+  newPost.classList = 'newPost';
+  logo.src = './logoUnidas.png';
   logOut.textContent = 'Cerrar sesión';
   // profilePic PENDIENTE
-  newPost.textContent = 'Crear publicación';
+  newPost.placeholder = 'Crear publicación';
   like.textContent = '👍';
   editPost.textContent = '✏️';
   deletePost.textContent = '❌';
@@ -25,11 +31,12 @@ export const wall = (onNavigate) => {
 
   wallDiv.appendChild(logo);
   wallDiv.appendChild(logOut);
+  wallDiv.appendChild(cuadroBlancoWall);
   // wallDiv.appendChild(profilePic);
-  wallDiv.appendChild(newPost);
-  wallDiv.appendChild(like);
-  wallDiv.appendChild(editPost);
-  wallDiv.appendChild(deletePost);
+  cuadroBlancoWall.appendChild(newPost);
+  cuadroBlancoWall.appendChild(like);
+  cuadroBlancoWall.appendChild(editPost);
+  cuadroBlancoWall.appendChild(deletePost);
 
   return wallDiv;
 };
