@@ -178,6 +178,40 @@ p{
     color: red;
     width: ;
 }
+
+/* ---------------------------- Pantalla register ordenador ---------------------------- */
+.wallDiv{
+    background-color: #FCAFFF;
+    height: 700px;
+}
+.cuadroBlancoWall{
+    width: 90%;
+    height: 95%;
+    background-color: white;
+    /* border: red solid 2px; */
+    margin-left: 70px;
+    border-radius: 10px;
+}
+.logoWall{
+    width: 250px;
+    margin-left: 70px;
+}
+.logOut{
+    width: 90px;
+    height: 40px;
+    background-color: white;
+    margin-right: 70px;
+    margin-top: 50px;
+    border-radius: 5px;
+    border: grey 1px solid;
+    float: right;
+}
+.newPost{
+    margin-left: 30%;
+    height: 100px;
+    width: 500px;
+}
+
 @media (max-width: 500px){
 /* -------------------------------- Login en Telefono -------------------------------- */
     .loginDiv, .registerDiv{

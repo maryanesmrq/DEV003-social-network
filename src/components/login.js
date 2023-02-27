@@ -37,7 +37,7 @@ export const login = (onNavigate) => {
   buttonGoogle.textContent = 'Iniciar sesión con Google';
   textRegister.textContent = '¿No tienes cuenta?';
   buttonRegister.textContent = 'Registrate dando click aquí';
-  logoUnidas.src = './logoUnidas.jpg';
+  logoUnidas.src = './logoUnidas.png';
   logoUnidas.classList = 'logoUnidas';
   inputPassword.type = 'password';
 

@@ -41,7 +41,7 @@ export const register = (onNavigate) => {
   buttonGoogle2.classList = 'buttonGoogle2';
   welcomeText.textContent = '¡Ingresa tus datos y sé parte de nuestra comunidad!';
   welcomeText.classList = 'welcomeText';
-  logoUnidas2.src = './logoUnidas.jpg';
+  logoUnidas2.src = './logoUnidas.png';
   logoUnidas2.classList = 'logoUnidas2';
   divSinLogo.classList = 'divSinLogo';
   logoUnidasHome.src = './logoUnidasHome.png';
