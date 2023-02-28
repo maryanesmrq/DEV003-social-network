@@ -19,6 +19,7 @@ export const login = (onNavigate) => {
   const alertEmpty = document.createElement('p');
 
   userNoRegister.id = 'userNoRegister';
+  cuadroBlanco.id = 'cuadroBlanco';
   cuadroBlanco.classList = 'cuadroBlanco';
   loginDiv.classList = 'loginDiv';
   logoUnidasHome.classList = 'logoUnidasHome';
