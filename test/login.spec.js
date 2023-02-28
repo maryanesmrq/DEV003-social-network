@@ -8,6 +8,7 @@ jest.mock('../src/lib/functionFirebase');
 // Corroborar que sea una función
 describe('login', () => {
   let cuadroBlanco;
+  let loginUser;
   beforeEach(() => {
     const onNavigate = jest.fn();
     document.body.appendChild(login(onNavigate));
@@ -27,30 +28,18 @@ describe('login', () => {
     expect(cuadroBlanco).toBeTruthy();
   });
   it('ingresa un usuario no registrado', () => {
-    loginUser.mockImplementationOnce()
-    expect(cuadroBlanco).toBeTruthy();
+    loginUser.mockImplementationOnce((email, password) => Promise.reject(
+      new Error('Firebase: Error (auth/invalid-email).'),
+    ));
+    // );
+    // expect('Firebase: Error (auth/invalid-email).').toEqual('Usuario no registrado');
   });
-
-  // aquí deben ir los testeos de las funciones en login
 });
-
 // Corroborar que la alerta aparezca en pantalla y sea la correcta
 // describe('Error', () => {
-
-// });
-
-// Corroborar que al dar clic redireccione a la pantalla correcta
-// describe('buttonLogin', () => {
-
-// });
-
 // Testear la creación de un div o p de forma correcta llamando al ID o Class
 // describe('div', () => {
-
 // });
-
 // al dar clic en un boton los eventlistener hagan lo que deba hacer
-
 // que exista y que se hagan los llamados correspondientes
-
 // comenzar testeando si se crean inputs, botones, informacion
