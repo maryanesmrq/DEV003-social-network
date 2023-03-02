@@ -29,6 +29,7 @@ export const login = (onNavigate) => {
   buttonRegister.classList = 'buttonRegister';
   textRegister.classList = 'textRegister';
   inputEmail.classList = 'inputEmail';
+  // inputEmail.id = '';
   inputPassword.classList = 'inputPassword';
   logoUnidasHome.src = './logoUnidasHome.png';
   unidasLetras.src = './unidasLetras.png';
@@ -65,6 +66,8 @@ export const login = (onNavigate) => {
     alertCorreo.innerHTML = '';
     alertEmpty.innerHTML = '';
     loginUser(inputEmail.value, inputPassword.value).then(() => {
+      // window.localStorage();
+      // console.log("login -->", result); para que esto funciona el then debe pasar el result
       onNavigate('/wall');
     })
       .catch((error) => {
