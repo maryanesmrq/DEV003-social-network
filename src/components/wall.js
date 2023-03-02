@@ -1,3 +1,5 @@
+import { postPublication } from '../lib/functionFirebase.js';
+
 export const wall = (onNavigate) => {
   const wallDiv = document.createElement('div');
   const cuadroBlancoWall = document.createElement('div');
@@ -8,7 +10,9 @@ export const wall = (onNavigate) => {
   const like = document.createElement('button');
   const editPost = document.createElement('button');
   const deletePost = document.createElement('button');
+  const postPublicationBoton = document.createElement('button');
 
+  postPublicationBoton.textContent = 'Publicar';
   cuadroBlancoWall.classList = 'cuadroBlancoWall';
   wallDiv.classList = 'wallDiv';
   logo.classList = 'logoWall';
@@ -22,6 +26,15 @@ export const wall = (onNavigate) => {
   editPost.textContent = '✏️';
   deletePost.textContent = '❌';
 
+  // poner listener al boton publicar
+  // ejecutar postPublication(autor, contenido) <-- contenido y autor
+
+  postPublicationBoton.addEventListener('click', () => {
+    postPublication(newPost.value).then(() => {
+      // resultado es que aparezca el post en pantalla
+    });
+  });
+
   logOut.addEventListener('click', () => {
     onNavigate('/');
   });
@@ -34,6 +47,7 @@ export const wall = (onNavigate) => {
   wallDiv.appendChild(cuadroBlancoWall);
   // wallDiv.appendChild(profilePic);
   cuadroBlancoWall.appendChild(newPost);
+  cuadroBlancoWall.appendChild(postPublicationBoton);
   cuadroBlancoWall.appendChild(like);
   cuadroBlancoWall.appendChild(editPost);
   cuadroBlancoWall.appendChild(deletePost);

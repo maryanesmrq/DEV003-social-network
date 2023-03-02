@@ -28,7 +28,7 @@ describe('login', () => {
     expect(cuadroBlanco).toBeTruthy();
   });
   it('ingresa un usuario no registrado', () => {
-    loginUser.mockImplementationOnce((email, password) => Promise.reject(
+    loginUser.mockImplementationOnce(() => Promise.reject(
       new Error('Firebase: Error (auth/invalid-email).'),
     ));
     // );
