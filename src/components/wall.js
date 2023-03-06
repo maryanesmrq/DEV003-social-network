@@ -1,4 +1,5 @@
-import { postPublication } from '../lib/functionFirebase.js';
+import { postPublication, currentUserInfo, querySnapshot } from '../lib/functionFirebase.js';
+// import { auth } from '../lib/firebase.js';
 
 export const wall = (onNavigate) => {
   const wallDiv = document.createElement('div');
@@ -11,6 +12,8 @@ export const wall = (onNavigate) => {
   const editPost = document.createElement('button');
   const deletePost = document.createElement('button');
   const postPublicationBoton = document.createElement('button');
+  const userId = currentUserInfo().uid;
+  const postMade = document.createElement('div'); // publicacion realizada
 
   postPublicationBoton.textContent = 'Publicar';
   cuadroBlancoWall.classList = 'cuadroBlancoWall';
@@ -30,11 +33,12 @@ export const wall = (onNavigate) => {
   // ejecutar postPublication(autor, contenido) <-- contenido y autor
 
   postPublicationBoton.addEventListener('click', () => {
-    postPublication(newPost.value).then(() => {
-      // resultado es que aparezca el post en pantalla
+    postPublication(userId, newPost.value).then(() => {
+      // querySnapshot;
     });
+    // resultado es que aparezca el post en pantalla
   });
-
+  // console.log(currentUserInfo());
   logOut.addEventListener('click', () => {
     onNavigate('/');
   });
