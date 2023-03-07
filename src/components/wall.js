@@ -1,4 +1,4 @@
-import { postPublication, currentUserInfo, querySnapshot } from '../lib/functionFirebase.js';
+import { postPublication, consultaTiempoReal } from '../lib/functionFirebase.js';
 // import { auth } from '../lib/firebase.js';
 
 export const wall = (onNavigate) => {
@@ -12,9 +12,10 @@ export const wall = (onNavigate) => {
   const editPost = document.createElement('button');
   const deletePost = document.createElement('button');
   const postPublicationBoton = document.createElement('button');
-  const userId = currentUserInfo().uid;
+  // const userId = currentUserInfo().uid;
   const postMade = document.createElement('div'); // publicacion realizada
 
+  postMade.classList = 'postMade';
   postPublicationBoton.textContent = 'Publicar';
   cuadroBlancoWall.classList = 'cuadroBlancoWall';
   wallDiv.classList = 'wallDiv';
@@ -32,12 +33,48 @@ export const wall = (onNavigate) => {
   // poner listener al boton publicar
   // ejecutar postPublication(autor, contenido) <-- contenido y autor
 
-  postPublicationBoton.addEventListener('click', () => {
-    postPublication(userId, newPost.value).then(() => {
-      // querySnapshot;
+  // cambiar querySnapshot cambiarla por onSnapshot
+  function paintData(doc) {
+    const data = doc.data();
+    const postBox = `
+      <div class='container__contenido'>
+      <h3> ${data.autor} </h3>
+      <p> ${data.contenido} </p>
+      </div>
+    `;
+    const eachPost = document.createElement('div');
+    eachPost.innerHTML = postBox;
+    postMade.appendChild(eachPost);
+
+    // aca dentro va la opción editar y eliminar
+  }
+
+  consultaTiempoReal((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      const datos = doc;
+      paintData(datos);
     });
-    // resultado es que aparezca el post en pantalla
   });
+
+  postPublicationBoton.addEventListener('click', () => {
+    postPublication(newPost.value).then(() => {
+      // window.addEventListener('DOMContentLoaded', () => {
+      //   const docActual = querySnapshot();
+      //   console.log(docActual);
+      // let html = ''
+
+      // querySnapshot.forEach((doc) => {
+      //   html += `
+      //     <div>
+      //       <p> ${doc.data().description} </p>
+      //     </div>
+      //   `
+    });
+    // })
+    // querySnapshot;
+  });
+  // resultado es que aparezca el post en pantalla
+  // });
   // console.log(currentUserInfo());
   logOut.addEventListener('click', () => {
     onNavigate('/');
@@ -49,12 +86,13 @@ export const wall = (onNavigate) => {
   wallDiv.appendChild(logo);
   wallDiv.appendChild(logOut);
   wallDiv.appendChild(cuadroBlancoWall);
-  // wallDiv.appendChild(profilePic);
   cuadroBlancoWall.appendChild(newPost);
   cuadroBlancoWall.appendChild(postPublicationBoton);
   cuadroBlancoWall.appendChild(like);
   cuadroBlancoWall.appendChild(editPost);
   cuadroBlancoWall.appendChild(deletePost);
+  cuadroBlancoWall.appendChild(postMade);
+  
 
   return wallDiv;
 };
