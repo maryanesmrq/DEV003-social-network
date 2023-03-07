@@ -2,7 +2,7 @@ import {
   // eslint-disable-next-line max-len
   createUserWithEmailAndPassword, signInWithPopup, signInWithEmailAndPassword,
 } from 'firebase/auth';
-import { collection, addDoc, getDocs } from 'firebase/firestore';
+import { collection, addDoc, getDocs, onSnapshot } from 'firebase/firestore';
 import { auth, provider, db } from './firebase.js';
 
 // eslint-disable-next-line max-len
@@ -36,21 +36,23 @@ export function loginUser(email, password){
 //     }
 //   });
 // };
-export function postPublication(autor, contenido) {
+export function postPublication(contenido) {
+  const currentUserInfo = auth.currentUser;
   const docRef = addDoc(collection(db, 'publicaciones'), {
-    autor,
+    autor: currentUserInfo.uid,
     contenido,
     likes: [],
   });
   return docRef;
 }
 
-export const currentUserInfo = () => auth.currentUser;
+// export const currentUserInfo = () => auth.currentUser;
 
-export const querySnapshot = getDocs(collection(db, 'users'));
-// querySnapshot.forEach((doc) => {
-//   console.log(`${doc.id} => ${doc.data()}`);
-// });
+export const consultaTiempoReal = (obtenerData) => onSnapshot(collection(db, 'publicaciones'), obtenerData);
+
+
+
+
 // console.log(getDocs);
 
 // export const postPublication = () => addDoc(collection(db, 'publicaciones'), {
