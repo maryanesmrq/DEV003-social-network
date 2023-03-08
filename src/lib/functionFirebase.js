@@ -2,7 +2,9 @@ import {
   // eslint-disable-next-line max-len
   createUserWithEmailAndPassword, signInWithPopup, signInWithEmailAndPassword,
 } from 'firebase/auth';
-import { collection, addDoc, getDocs, onSnapshot } from 'firebase/firestore';
+import {
+  collection, addDoc, getDocs, onSnapshot, doc, deleteDoc, update,
+} from 'firebase/firestore';
 import { auth, provider, db } from './firebase.js';
 
 // eslint-disable-next-line max-len
@@ -50,8 +52,18 @@ export function postPublication(contenido) {
 
 export const consultaTiempoReal = (obtenerData) => onSnapshot(collection(db, 'publicaciones'), obtenerData);
 
+// export const deletePost = (id) => db.collection('publicaciones').doc(id).delete();
+export const deletePost = (id) => deleteDoc(doc(db, 'publicaciones', id));
 
+// export const editPost = (id) => db.collection('publicaciones').doc(id).get();
+// export const editPost = (id) => getDocs(collection(db, 'publicaciones', id));
 
+export function editPost(id, contenido) {
+  const washingtonRef = doc(db, 'publicaciones', id);
+  return washingtonRef.update({
+    contenido,
+  });
+}
 
 // console.log(getDocs);
 
