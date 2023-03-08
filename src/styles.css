@@ -211,6 +211,45 @@ p{
     height: 100px;
     width: 500px;
 }
+.postMade{
+    border: red 2px solid;
+    width: 700px;
+    margin-left: 20%;
+    /* padding: 10px; */
+
+}
+.eachPost{
+    border: #F38BFE 2px solid;
+    border-radius: 5px;
+    background-color: antiquewhite;
+    margin: 20px;
+}
+.contenido__post{
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-right: 20px;
+    padding: 30px;
+    background-color: white;
+}
+.contenedorPublicacion{
+    position: relative;
+}
+.postPublicationBoton{
+    margin-left: -80px ;
+    margin-top: 85px;
+    position: absolute;
+}
+.btn-delete, .btn-edit, .btn-like{
+    margin-top: 0px;
+    margin-left: -2px;
+    margin-right: -2px;
+    width: 220px;
+    height: 28px;
+    border: gray 1px solid;
+    border-bottom: 0px;
+    background-color: antiquewhite;
+
+}
 
 @media (max-width: 500px){
 /* -------------------------------- Login en Telefono -------------------------------- */
