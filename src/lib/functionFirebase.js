@@ -3,7 +3,7 @@ import {
   createUserWithEmailAndPassword, signInWithPopup, signInWithEmailAndPassword,
 } from 'firebase/auth';
 import {
-  collection, addDoc, getDocs, onSnapshot, doc, deleteDoc, update,
+  collection, addDoc, onSnapshot, doc, deleteDoc,
 } from 'firebase/firestore';
 import { auth, provider, db } from './firebase.js';
 
