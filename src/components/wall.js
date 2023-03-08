@@ -41,13 +41,12 @@ export const wall = (onNavigate) => {
     const postBox = `
       <div class='contenedor__post'>
         <div class='contenido__post'>
-          <h3> ${data.autor} </h3>
-          <p> ${data.contenido} </p>
+          <p class='contenido_publicacion'> ${data.contenido} </p>
         </div>
         <div class='contenedor__btns'>
           <button class='btn-like'>👍🏻 Me gusta</button>
           <button class='btn-edit' data-id='${data.id}','${data.contenido}'>✏️ Editar</button>
-          <button class='btn-delete' data-id='${data.id}'>❌ Eliminar</button>
+          <button class='btn-delete' value='${data.id}' data-id='${data.id}'>❌ Eliminar</button>
         </div>
       </div>
     `;
@@ -60,8 +59,22 @@ export const wall = (onNavigate) => {
     // --------------- Btn Eliminar --------------------------
     const btnsDelete = document.querySelectorAll('.btn-delete');
     btnsDelete.forEach((btn) => {
-      btn.addEventListener('click', async (e) => {
-        await deletePost(e.target.dataset.id);
+      // console.log(e.target);
+      btn.addEventListener('click', ({target:{dataset}}) => {
+        // await deletePost(e.target.dataset.id);
+
+        // pregunta o alerta antes de eliminar
+        const eliminar = confirm('¿Estas seguro que quieres eliminar esta publicación pinche pendejo?');
+        // si opta por el boton "eliminar" se ejecuta deletePost()
+        if (eliminar) {
+          deletePost(dataset.id);
+        }else{
+          onNavigate('/wall');
+        }
+
+        // await deletePost(e.target.dataset.id);
+
+        // si da clic en el boton "cancelar" lo devuelve a la pantalla con publicaciones
       });
     });
 
@@ -88,7 +101,9 @@ export const wall = (onNavigate) => {
   });
 
   postPublicationBoton.addEventListener('click', () => {
-    postPublication(newPost.value);
+    if (newPost.value.length > 0) {
+      postPublication(newPost.value);
+    }
   });
   // resultado es que aparezca el post en pantalla
   // });

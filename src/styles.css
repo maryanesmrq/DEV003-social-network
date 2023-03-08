@@ -212,14 +212,14 @@ p{
     width: 500px;
 }
 .postMade{
-    border: red 2px solid;
+    /* border: red 2px solid; */
     width: 700px;
     margin-left: 20%;
     /* padding: 10px; */
 
 }
 .eachPost{
-    border: #F38BFE 2px solid;
+    border: #fcafff 2px solid;
     border-radius: 5px;
     background-color: antiquewhite;
     margin: 20px;
@@ -233,6 +233,10 @@ p{
 }
 .contenedorPublicacion{
     position: relative;
+}
+.contenido_publicacion{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: black;
 }
 .postPublicationBoton{
     margin-left: -80px ;
@@ -248,7 +252,14 @@ p{
     border: gray 1px solid;
     border-bottom: 0px;
     background-color: antiquewhite;
-
+}
+.btn-delete:hover, .btn-edit:hover, .btn-like:hover{
+   
+    border: white 1px solid;
+    border-bottom: 0px;
+    background-color: black;
+    color: white;
+    transition: 1ms;
 }
 
 @media (max-width: 500px){
