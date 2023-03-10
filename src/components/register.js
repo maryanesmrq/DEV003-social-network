@@ -61,7 +61,7 @@ export const register = (onNavigate) => {
         .catch((error) => {
           const errorCode = error.code;
           if (errorCode === 'auth/weak-password') {
-            alertPassword.innerHTML = 'Eres débil pinche contraseña, te van a hackear';
+            alertPassword.innerHTML = 'La contraseña debe tener más de 6 caracteres';
           }
           if (errorCode === 'auth/email-already-in-use') {
             alertEmail.innerHTML = 'El email ya esta en uso';
@@ -73,7 +73,7 @@ export const register = (onNavigate) => {
             alertPassword.innerHTML = 'Debes ingresar una contraseña';
           }
           if (errorCode === 'auth/invalid-email') {
-            alertEmail.innerHTML = 'Debes ingresar un email valido puto';
+            alertEmail.innerHTML = 'Debes ingresar un email valido';
           }
         });
     } else {

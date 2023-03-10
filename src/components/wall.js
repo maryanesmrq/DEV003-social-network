@@ -1,6 +1,5 @@
-import { async } from 'regenerator-runtime';
 import {
-  postPublication, consultaTiempoReal, deletePost, editPost,
+  postPublication, consultaTiempoReal, deletePost, editPost, obtenerDatos,
 } from '../lib/functionFirebase.js';
 // import { auth } from '../lib/firebase.js';
 
@@ -15,6 +14,9 @@ export const wall = (onNavigate) => {
   // const userId = currentUserInfo().uid;
   const postMade = document.createElement('div'); // publicacion realizada
   const contenedorPublicacion = document.createElement('div');
+
+  let editStatus = false;
+  let id = '';
 
   contenedorPublicacion.classList = 'contenedorPublicacion';
   postMade.classList = 'postMade';
@@ -45,7 +47,7 @@ export const wall = (onNavigate) => {
         </div>
         <div class='contenedor__btns'>
           <button class='btn-like'>👍🏻 Me gusta</button>
-          <button class='btn-edit' data-id='${data.id}','${data.contenido}'>✏️ Editar</button>
+          <button class='btn-edit' data-id='${data.contenido}'>✏️ Editar</button>
           <button class='btn-delete' value='${data.id}' data-id='${data.id}'>❌ Eliminar</button>
         </div>
       </div>
@@ -57,18 +59,18 @@ export const wall = (onNavigate) => {
     postMade.appendChild(eachPost);
 
     // --------------- Btn Eliminar --------------------------
-    const btnsDelete = document.querySelectorAll('.btn-delete');
+    const btnsDelete = document.querySelectorAll(`[data-id='${data.id}']`);
     btnsDelete.forEach((btn) => {
       // console.log(e.target);
-      btn.addEventListener('click', ({target:{dataset}}) => {
+      btn.addEventListener('click', ({ target: { dataset } }) => {
         // await deletePost(e.target.dataset.id);
 
         // pregunta o alerta antes de eliminar
-        const eliminar = confirm('¿Estas seguro que quieres eliminar esta publicación pinche pendejo?');
+        const eliminar = confirm('¿Estás seguro que quieres eliminar esta publicación?');
         // si opta por el boton "eliminar" se ejecuta deletePost()
         if (eliminar) {
           deletePost(dataset.id);
-        }else{
+        } else {
           onNavigate('/wall');
         }
 
@@ -79,13 +81,21 @@ export const wall = (onNavigate) => {
     });
 
     // --------------- Btn Editar --------------------------
-    const btnsEdit = document.querySelectorAll('.btn-edit');
+    const btnsEdit = document.querySelectorAll(`[data-id='${data.contenido}']`);
+    console.log(btnsEdit);
     btnsEdit.forEach((btn) => {
-      btn.addEventListener('click', async (e) => {
+      btn.addEventListener('click', ({ target: { dataset } }) => {
+        // const mostrarDatos = await obtenerDatos(e.target.dataset.id);
+        // console.log(mostrarDatos);
+        postPublicationBoton.innerText = 'Editar';
         newPost.value = data.contenido;
-        const post = await editPost(e.target.dataset.id, newPost.value);
-        postPublicationBoton.innerHTML = 'Editar';
+        const post = obtenerDatos(dataset.id);
+        // console.log(dataset.id);
         const data2 = post.data();
+        // console.log(e.target.dataset.id);
+
+        editStatus = true;
+        id = post.id;
 
         contenedorPublicacion['data-contenido'].value = data2.contenido;
       });
@@ -100,10 +110,20 @@ export const wall = (onNavigate) => {
     });
   });
 
-  postPublicationBoton.addEventListener('click', () => {
+  postPublicationBoton.addEventListener('click', async (e) => {
     if (newPost.value.length > 0) {
       postPublication(newPost.value);
     }
+    if (!editStatus) {
+      obtenerDatos(e.target.dataset.id);
+    } else {
+      editPost(id, {
+        contenido: newPost.value,
+      });
+    }
+
+    editStatus = false;
+    id = '';
   });
   // resultado es que aparezca el post en pantalla
   // });
