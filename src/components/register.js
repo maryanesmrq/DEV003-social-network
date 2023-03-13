@@ -2,53 +2,69 @@ import { registerUser, registerUserGoogle } from '../lib/functionFirebase.js';
 
 export const register = (onNavigate) => {
   const registerDiv = document.createElement('div');
+  registerDiv.classList = 'registerDiv';
+
   const cuadroBlancoRegister = document.createElement('div');
+  cuadroBlancoRegister.classList = 'cuadroBlancoRegister';
+
   const logoUnidasHome = document.createElement('img');
+  logoUnidasHome.src = './logoUnidasHome.png';
+  logoUnidasHome.classList = 'logoUnidasHome';
+
   const unidasLetrasRegister = document.createElement('img');
+  unidasLetrasRegister.src = './unidasLetras.png';
+  unidasLetrasRegister.classList = 'unidasLetrasRegister';
+
   const welcomeText = document.createElement('h2');
+  welcomeText.textContent = '¡Ingresa tus datos y sé parte de nuestra comunidad!';
+  welcomeText.classList = 'welcomeText';
+
   const buttonBack = document.createElement('button');
+  buttonBack.textContent = 'Iniciar sesión';
+  buttonBack.classList = 'buttonBack';
+
   const buttonRegister2 = document.createElement('button');
+  buttonRegister2.textContent = 'Registrarse';
+  buttonRegister2.classList = 'buttonRegister2';
+
   const buttonGoogle2 = document.createElement('button');
+  buttonGoogle2.textContent = 'Continuar con Google';
+  buttonGoogle2.classList = 'buttonGoogle2';
+
   const labelFullName = document.createElement('label');
+  labelFullName.textContent = 'Nombre y Apellido';
+  labelFullName.classList = 'labelFullName';
+
   const inputFullName = document.createElement('input');
+  inputFullName.id = 'fullName';
+
   const labelEmail = document.createElement('label');
+  labelEmail.textContent = 'Correo electrónico';
+  labelEmail.classList = 'labelEmail';
+
   const inputEmail = document.createElement('input');
+
   const labelPassword = document.createElement('label');
+  labelPassword.textContent = 'Contraseña';
+  labelPassword.classList = 'labelPassword';
+
   const inputPassword = document.createElement('input');
+  inputPassword.type = 'password';
+
   const logoUnidas2 = document.createElement('img');
+  logoUnidas2.src = './logoUnidas.png';
+  logoUnidas2.classList = 'logoUnidas2';
+
   const alreadyMember = document.createElement('h4');
+  alreadyMember.textContent = '¿Ya eres miembro de Unidas?';
+  alreadyMember.classList = 'alreadyMember';
+
   const divSinLogo = document.createElement('div');
+  divSinLogo.classList = 'divSinLogo';
+
   const alertEmail = document.createElement('p');
   const alertPassword = document.createElement('p');
   const alertEmpty = document.createElement('p');
-
-  registerDiv.classList = 'registerDiv';
-  cuadroBlancoRegister.classList = 'cuadroBlancoRegister';
-  labelFullName.textContent = 'Nombre y Apellido';
-  labelFullName.classList = 'labelFullName';
-  inputFullName.id = 'fullName';
-  labelEmail.textContent = 'Correo electrónico';
-  labelEmail.classList = 'labelEmail';
-  labelPassword.textContent = 'Contraseña';
-  labelPassword.classList = 'labelPassword';
-  buttonBack.textContent = 'Iniciar sesión';
-  buttonBack.classList = 'buttonBack';
-  alreadyMember.textContent = '¿Ya eres miembro de Unidas?';
-  alreadyMember.classList = 'alreadyMember';
-  buttonRegister2.textContent = 'Registrarse';
-  buttonRegister2.classList = 'buttonRegister2';
-  buttonGoogle2.textContent = 'Continuar con Google';
-  buttonGoogle2.classList = 'buttonGoogle2';
-  welcomeText.textContent = '¡Ingresa tus datos y sé parte de nuestra comunidad!';
-  welcomeText.classList = 'welcomeText';
-  logoUnidas2.src = './logoUnidas.png';
-  logoUnidas2.classList = 'logoUnidas2';
-  divSinLogo.classList = 'divSinLogo';
-  logoUnidasHome.src = './logoUnidasHome.png';
-  logoUnidasHome.classList = 'logoUnidasHome';
-  unidasLetrasRegister.src = './unidasLetras.png';
-  unidasLetrasRegister.classList = 'unidasLetrasRegister';
-  inputPassword.type = 'password';
 
   buttonRegister2.addEventListener('click', () => {
     alertEmail.innerHTML = '';

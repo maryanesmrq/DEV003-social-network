@@ -3,45 +3,57 @@ import { registerUserGoogle, loginUser } from '../lib/functionFirebase.js';
 
 export const login = (onNavigate) => {
   const loginDiv = document.createElement('div');
+  loginDiv.classList = 'loginDiv';
+
   const cuadroBlanco = document.createElement('div');
+  cuadroBlanco.id = 'cuadroBlanco';
+  cuadroBlanco.classList = 'cuadroBlanco';
+
   const logoUnidasHome = document.createElement('img');
+  logoUnidasHome.classList = 'logoUnidasHome';
+  logoUnidasHome.src = './logoUnidasHome.png';
+
   const unidasLetras = document.createElement('img');
+  unidasLetras.classList = 'unidasLetras';
+  unidasLetras.src = './unidasLetras.png';
+
   const buttonLogin = document.createElement('button');
+  buttonLogin.classList = 'buttonLogin';
+  buttonLogin.textContent = 'Iniciar sesión';
+
   const buttonGoogle = document.createElement('button');
+  buttonGoogle.classList = 'buttonGoogle';
+  buttonGoogle.textContent = 'Iniciar sesión con Google';
+
   const buttonRegister = document.createElement('button');
+  buttonRegister.classList = 'buttonRegister';
+  buttonRegister.textContent = 'Registrate dando click aquí';
+
   const textRegister = document.createElement('h4');
+  textRegister.classList = 'textRegister';
+  textRegister.textContent = '¿No tienes cuenta?';
+
   const inputEmail = document.createElement('input');
+  inputEmail.classList = 'inputEmail';
+  inputEmail.placeholder = 'Correo electrónico';
+
   const inputPassword = document.createElement('input');
+  inputPassword.classList = 'inputPassword';
+  inputPassword.type = 'password';
+  inputPassword.placeholder = 'Contraseña';
+
   const logoUnidas = document.createElement('img');
+  logoUnidas.src = './logoUnidas.png';
+  logoUnidas.classList = 'logoUnidas';
+
   const userNoRegister = document.createElement('div');
+  userNoRegister.id = 'userNoRegister';
+
   const alertCorreo = document.createElement('p');
   const alertContrasena = document.createElement('p');
   const alertEmpty = document.createElement('p');
 
-  userNoRegister.id = 'userNoRegister';
-  cuadroBlanco.id = 'cuadroBlanco';
-  cuadroBlanco.classList = 'cuadroBlanco';
-  loginDiv.classList = 'loginDiv';
-  logoUnidasHome.classList = 'logoUnidasHome';
-  unidasLetras.classList = 'unidasLetras';
-  buttonLogin.classList = 'buttonLogin';
-  buttonGoogle.classList = 'buttonGoogle';
-  buttonRegister.classList = 'buttonRegister';
-  textRegister.classList = 'textRegister';
-  inputEmail.classList = 'inputEmail';
   // inputEmail.id = '';
-  inputPassword.classList = 'inputPassword';
-  logoUnidasHome.src = './logoUnidasHome.png';
-  unidasLetras.src = './unidasLetras.png';
-  inputEmail.placeholder = 'Correo electrónico';
-  inputPassword.placeholder = 'Contraseña';
-  buttonLogin.textContent = 'Iniciar sesión';
-  buttonGoogle.textContent = 'Iniciar sesión con Google';
-  textRegister.textContent = '¿No tienes cuenta?';
-  buttonRegister.textContent = 'Registrate dando click aquí';
-  logoUnidas.src = './logoUnidas.png';
-  logoUnidas.classList = 'logoUnidas';
-  inputPassword.type = 'password';
 
   buttonRegister.addEventListener('click', () => {
     onNavigate('/register');
@@ -99,9 +111,9 @@ export const login = (onNavigate) => {
   // });
 
   loginDiv.appendChild(logoUnidasHome);
+  loginDiv.appendChild(cuadroBlanco);
   cuadroBlanco.insertAdjacentElement('beforeend', unidasLetras);
   cuadroBlanco.insertAdjacentElement('beforeend', logoUnidas);
-  loginDiv.appendChild(cuadroBlanco);
   cuadroBlanco.insertAdjacentElement('beforeend', inputEmail);
   cuadroBlanco.insertAdjacentElement('beforeend', alertCorreo);
   cuadroBlanco.insertAdjacentElement('beforeend', inputPassword);
