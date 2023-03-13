@@ -5,34 +5,38 @@ import {
 
 export const wall = (onNavigate) => {
   const wallDiv = document.createElement('div');
+  wallDiv.classList = 'wallDiv';
+
   const cuadroBlancoWall = document.createElement('div');
+  cuadroBlancoWall.classList = 'cuadroBlancoWall';
+
   const logo = document.createElement('img');
+  logo.classList = 'logoWall';
+  logo.src = './logoUnidas.png';
+
   const logOut = document.createElement('button');
-  // const profilePic = document.createElement('img');
+  logOut.classList = 'logOut';
+  logOut.textContent = 'Cerrar sesión';
+
   const newPost = document.createElement('input');
+  newPost.classList = 'newPost';
+  newPost.id = 'newPost';
+  newPost.placeholder = 'Crear publicación';
+
   const postPublicationBoton = document.createElement('button');
-  // const userId = currentUserInfo().uid;
+  postPublicationBoton.textContent = 'Publicar';
+  postPublicationBoton.classList = 'postPublicationBoton';
+
   const postMade = document.createElement('div'); // publicacion realizada
+  postMade.classList = 'postMade';
+
   const contenedorPublicacion = document.createElement('div');
+  contenedorPublicacion.classList = 'contenedorPublicacion';
 
   let editStatus = false;
   let id = '';
 
-  contenedorPublicacion.classList = 'contenedorPublicacion';
-  postMade.classList = 'postMade';
-  postPublicationBoton.textContent = 'Publicar';
-  postPublicationBoton.classList = 'postPublicationBoton';
-  cuadroBlancoWall.classList = 'cuadroBlancoWall';
-  wallDiv.classList = 'wallDiv';
-  logo.classList = 'logoWall';
-  logOut.classList = 'logOut';
-  newPost.classList = 'newPost';
-  newPost.id = 'newPost';
-  logo.src = './logoUnidas.png';
-  logOut.textContent = 'Cerrar sesión';
   // profilePic PENDIENTE
-  newPost.placeholder = 'Crear publicación';
-
   // poner listener al boton publicar
   // ejecutar postPublication(autor, contenido) <-- contenido y autor
 
@@ -66,6 +70,7 @@ export const wall = (onNavigate) => {
         // await deletePost(e.target.dataset.id);
 
         // pregunta o alerta antes de eliminar
+        // eslint-disable-next-line no-restricted-globals
         const eliminar = confirm('¿Estás seguro que quieres eliminar esta publicación?');
         // si opta por el boton "eliminar" se ejecuta deletePost()
         if (eliminar) {
@@ -81,17 +86,21 @@ export const wall = (onNavigate) => {
     });
 
     // --------------- Btn Editar --------------------------
+    // se reconocen todos los botones editar como const btnsEdit
     const btnsEdit = document.querySelectorAll(`[data-id='${data.contenido}']`);
-    console.log(btnsEdit);
+    // se recorren con el .forEach a dichos botones
     btnsEdit.forEach((btn) => {
+      // Al dar clic en el boton se leera lo siguiente
       btn.addEventListener('click', ({ target: { dataset } }) => {
-        // const mostrarDatos = await obtenerDatos(e.target.dataset.id);
-        // console.log(mostrarDatos);
+        // El texto del boton "Publicar" cambiara a "Editar"
         postPublicationBoton.innerText = 'Editar';
+        // Igualamos el contenido de newPost al que tiene la publicación
         newPost.value = data.contenido;
+        //
         const post = obtenerDatos(dataset.id);
         // console.log(dataset.id);
         const data2 = post.data();
+        console.log(post.data());
         // console.log(e.target.dataset.id);
 
         editStatus = true;
@@ -117,9 +126,7 @@ export const wall = (onNavigate) => {
     if (!editStatus) {
       obtenerDatos(e.target.dataset.id);
     } else {
-      editPost(id, {
-        contenido: newPost.value,
-      });
+      editPost(id, newPost.value);
     }
 
     editStatus = false;
