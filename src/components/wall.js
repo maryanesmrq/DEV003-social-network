@@ -14,9 +14,17 @@ export const wall = (onNavigate) => {
   logo.classList = 'logoWall';
   logo.src = './logoUnidas.png';
 
+  const logoMobile = document.createElement('img');
+  logoMobile.classList = 'logoWallMobile';
+  logoMobile.src = './logoUnidasWallMobile.png';
+
   const logOut = document.createElement('button');
   logOut.classList = 'logOut';
   logOut.textContent = 'Cerrar sesión';
+
+  const logOutMobile = document.createElement('button');
+  logOutMobile.classList = 'logOutMobile';
+  logOutMobile.textContent = 'Cerrar sesión';
 
   const newPost = document.createElement('input');
   newPost.classList = 'newPost';
@@ -145,6 +153,8 @@ export const wall = (onNavigate) => {
   wallDiv.appendChild(logo);
   wallDiv.appendChild(logOut);
   wallDiv.appendChild(cuadroBlancoWall);
+  cuadroBlancoWall.appendChild(logoMobile);
+  cuadroBlancoWall.appendChild(logOutMobile);
   cuadroBlancoWall.appendChild(contenedorPublicacion);
   contenedorPublicacion.appendChild(newPost);
   contenedorPublicacion.appendChild(postPublicationBoton);

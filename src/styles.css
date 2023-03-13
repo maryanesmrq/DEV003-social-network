@@ -184,6 +184,10 @@ p{
     background-color: #FCAFFF;
     height: 700px;
 }
+.logoWallMobile, .logOutMobile{
+    height: 1px;
+    visibility: hidden;
+}
 .cuadroBlancoWall{
     width: 90%;
     height: 95%;
@@ -264,7 +268,7 @@ p{
 
 @media (max-width: 500px){
 /* -------------------------------- Login en Telefono -------------------------------- */
-    .loginDiv, .registerDiv{
+    .loginDiv, .registerDiv, .wallDiv{
         background-image:url('./backgroundMobile.jpg');
         width: 500px;
         height: 980px;
@@ -428,4 +432,97 @@ p{
         font-size: 16px;
         text-decoration: underline;
     }
+    /* -------------------------------- Wall en Telefono -------------------------------- */
+.logoWall, .logOut{
+    height: 1px;
+    visibility: hidden;
+}
+.cuadroBlancoWall{
+        background-color: white;
+        border-radius: 40px;
+        width: 90%;
+        height: 90%;
+        /* top: 100px; */
+        /* right: 70px; */
+        padding: 0px 15px;
+        float:right;
+        /* display: block; */
+        align-items: center;
+        position: relative;
+        box-shadow: 4px 0px 4px rgba(0, 0, 0.25, 0.25);
+}
+.logoWallMobile{
+    width: 130px;
+    height: 70px;
+    margin: 7px;
+    visibility:visible;
+}
+.logOutMobile{
+    width: 90px;
+    height: 30px;
+    background-color: #FCAFFF;
+    margin-right: 40px;
+    margin-top: -60px;
+    border-radius: 5px;
+    border: grey 1px solid;
+    float: right;
+    visibility:visible;
+}
+.newPost{
+    margin-left: 5%;
+    height: 100px;
+    width: 80%;
+}
+.postMade{
+    /* border: red 2px solid; */
+    width: 80%;
+    margin-left: 5%;
+    /* padding: 10px; */
+
+}
+.eachPost{
+    border: #fcafff 2px solid;
+    border-radius: 5px;
+    background-color: antiquewhite;
+    margin: 20px;
+}
+.contenido__post{
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-right: 20px;
+    padding: 30px;
+    background-color: white;
+}
+.contenedorPublicacion{
+    position: relative;
+}
+.contenido_publicacion{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: black;
+}
+.postPublicationBoton{
+    margin-left: -80px ;
+    margin-top: 85px;
+    position: absolute;
+
+}
+.btn-delete, .btn-edit, .btn-like{
+    margin-top: 0px;
+    margin-left: -2px;
+    margin-right: -2px;
+    width: 33.7%;
+    height: 28px;
+    border: gray 1px solid;
+    border-bottom: 0px;
+    background-color: antiquewhite;
+}
+.btn-delete:hover, .btn-edit:hover, .btn-like:hover{
+   
+    border: white 1px solid;
+    border-bottom: 0px;
+    background-color: black;
+    color: white;
+    transition: 1ms;
+}
+
 }
