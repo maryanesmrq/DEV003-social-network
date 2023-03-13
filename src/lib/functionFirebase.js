@@ -3,7 +3,7 @@ import {
   createUserWithEmailAndPassword, signInWithPopup, signInWithEmailAndPassword,
 } from 'firebase/auth';
 import {
-  collection, addDoc, onSnapshot, doc, deleteDoc,
+  collection, addDoc, onSnapshot, doc, deleteDoc, updateDoc, getDoc,
 } from 'firebase/firestore';
 import { auth, provider, db } from './firebase.js';
 
@@ -56,14 +56,20 @@ export const consultaTiempoReal = (obtenerData) => onSnapshot(collection(db, 'pu
 export const deletePost = (id) => deleteDoc(doc(db, 'publicaciones', id));
 
 // export const editPost = (id) => db.collection('publicaciones').doc(id).get();
-// export const editPost = (id) => getDocs(collection(db, 'publicaciones', id));
 
-export function editPost(id, contenido) {
-  const washingtonRef = doc(db, 'publicaciones', id);
-  return washingtonRef.update({
-    contenido,
-  });
-}
+export const obtenerDatos = (id) => getDoc(collection(db, 'publicaciones', id));
+
+// export function editPost(id, contenido) {
+//   const washingtonRef = doc(db, 'publicaciones', id);
+//   return washingtonRef.update({
+//     contenido,
+//   });
+// }
+export const editPost = (contenido, id) => updateDoc(doc(db, 'publicaciones', id), {
+  contenido,
+});
+
+// export const actualizarPost = (contenido) =>
 
 // console.log(getDocs);
 
