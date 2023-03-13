@@ -435,21 +435,22 @@ p{
     /* -------------------------------- Wall en Telefono -------------------------------- */
 .logoWall, .logOut{
     height: 1px;
+    width: 1px;
     visibility: hidden;
 }
 .cuadroBlancoWall{
-        background-color: white;
-        border-radius: 40px;
-        width: 90%;
-        height: 90%;
-        /* top: 100px; */
-        /* right: 70px; */
-        padding: 0px 15px;
-        float:right;
-        /* display: block; */
-        align-items: center;
-        position: relative;
-        box-shadow: 4px 0px 4px rgba(0, 0, 0.25, 0.25);
+    background-color: white;
+    border-radius: 40px;
+    width: 85%;
+    height: 85%;
+    /* top: 100px; */
+    margin: 5%;
+    padding: 0px 15px;
+    /* float:right; */
+    /* display: block; */
+    align-items: center;
+    position: relative;
+    box-shadow: 4px 0px 4px rgba(0, 0, 0.25, 0.25);
 }
 .logoWallMobile{
     width: 130px;
@@ -461,22 +462,21 @@ p{
     width: 90px;
     height: 30px;
     background-color: #FCAFFF;
-    margin-right: 40px;
-    margin-top: -60px;
+    margin-top: 30px;
     border-radius: 5px;
     border: grey 1px solid;
     float: right;
     visibility:visible;
 }
 .newPost{
-    margin-left: 5%;
+    margin-left: 10%;
     height: 100px;
     width: 80%;
 }
 .postMade{
     /* border: red 2px solid; */
     width: 80%;
-    margin-left: 5%;
+    margin-left: 10%;
     /* padding: 10px; */
 
 }
@@ -484,7 +484,8 @@ p{
     border: #fcafff 2px solid;
     border-radius: 5px;
     background-color: antiquewhite;
-    margin: 20px;
+    margin: 10px;
+    /* width: 100%; */
 }
 .contenido__post{
     margin-left: 20px;
