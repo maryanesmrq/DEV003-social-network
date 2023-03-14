@@ -99,22 +99,24 @@ export const wall = (onNavigate) => {
     // se recorren con el .forEach a dichos botones
     btnsEdit.forEach((btn) => {
       // Al dar clic en el boton se leera lo siguiente
-      btn.addEventListener('click', ({ target: { dataset } }) => {
-        // El texto del boton "Publicar" cambiara a "Editar"
-        postPublicationBoton.innerText = 'Editar';
+      btn.addEventListener('click', () => {
         // Igualamos el contenido de newPost al que tiene la publicación
         newPost.value = data.contenido;
-        //
-        const post = obtenerDatos(dataset.id);
-        // console.log(dataset.id);
-        const data2 = post.data();
-        console.log(post.data());
+        // El texto del boton "Publicar" cambiara a "Editar"
+        postPublicationBoton.innerText = 'Editar';
+        // Al dar clic en 'Editar' se reemplace el nuevo texto en la publicación
+        postPublicationBoton.addEventListener('click', ({ target: { dataset } }) => {
+          editPost(dataset.id, newPost.value);
+        });
+
+        // -------------- CODIGO ANTIGUO - SE GUARDARA MOMENTANEAMENTE -----------------------
+        // Se realiza una constante que iguale a la obtención de datos
+        // la función esta trayendo un documento con mucha info dentro
+        // const post = obtenerDatos(dataset.id);
+        // Para convertir el documento a datos debo aplicar .data() a la const anterior
+        // const data2 = post.data();
+        // console.log(post.data());
         // console.log(e.target.dataset.id);
-
-        editStatus = true;
-        id = post.id;
-
-        contenedorPublicacion['data-contenido'].value = data2.contenido;
       });
     });
   }
@@ -131,14 +133,6 @@ export const wall = (onNavigate) => {
     if (newPost.value.length > 0) {
       postPublication(newPost.value);
     }
-    if (!editStatus) {
-      obtenerDatos(e.target.dataset.id);
-    } else {
-      editPost(id, newPost.value);
-    }
-
-    editStatus = false;
-    id = '';
   });
   // resultado es que aparezca el post en pantalla
   // });
