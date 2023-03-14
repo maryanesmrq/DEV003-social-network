@@ -65,6 +65,8 @@ export const obtenerDatos = (id) => getDoc(collection(db, 'publicaciones', id));
 //     contenido,
 //   });
 // }
+
+// ---------------- updateDoc: Actualiza un documento ---------------------
 export const editPost = (id, contenido) => updateDoc(doc(db, 'publicaciones', id), {
   contenido,
 });
