@@ -15,7 +15,7 @@
 }
 .cuadroBlanco { 
     width: 320px;
-    height: 400px;
+    height: 450px;
     background-color: white;
     border-radius: 20px;
     z-index: 10;
@@ -48,6 +48,7 @@ input{
 .buttonLogin{
     border: none;
     width: 170px;
+    height: 30px;
     padding: 2px;
     border-radius: 5px;
     background-color: #F38BFE;
@@ -57,26 +58,35 @@ input{
     background-color: black;
     color: white;
     cursor:pointer;
+    transition: .3s;
 }
 .buttonGoogle{
     width: 170px;
+    height: 30px;
     padding: 2px;
     border-radius: 5px;
     margin-top: 10px;
+    background-image: url('../src/Ggoogle.png') ;
+    background-size: 17px;
+    background-repeat: no-repeat;
+    background-position: left;
 }
 .buttonGoogle:hover{
     background-color: black;
     color: white;
+    transition: .3s;
 }
 .textRegister{
     margin-top: 40px;
-    text-decoration: underline;
     font-weight: lighter;
+    font-family: 'Josefin Slab', serif;
 }
 .buttonRegister{
     border: 0px;
     background-color: #ffffff;
     text-decoration: underline;
+    color: #7704d0;
+    font-family: 'Josefin Slab', serif;
 }
 
 /* ---------------------------- Pantalla register ordenador ---------------------------- */
@@ -95,7 +105,7 @@ input{
  }
 .cuadroBlancoRegister { 
     width: 320px;
-    height: 450px;
+    height: 500px;
     background-color: white;
     border-radius: 20px;
     z-index: 10; 
@@ -117,36 +127,47 @@ input{
 }
 .welcomeText{
     align-self: center;
-    margin: 10px 10px;
+    margin: 10px 10px 20px 10px;
     text-align: center;
-    font-size: large;
+    font-size: medium;
+    font-weight: lighter;
+    font-family: 'Yeseva One', cursive;
 }
 .buttonRegister2{
     border: none;
     width: 170px;
+    height: 30px;
     padding: 2px;
     border-radius: 5px;
     background-color: #F38BFE;
     margin-top: 20px;
+    letter-spacing: .5px;
 }
 .buttonRegister2:hover{
     background-color: black;
     color: white;
     cursor:pointer;
+    transition: .3s;
 }
 .buttonGoogle2{
     width: 170px;
+    height: 30px;
     padding: 2px;
     border-radius: 5px;
     margin-top: 10px;
+    background-image: url('../src/Ggoogle.png') ;
+    background-size: 17px;
+    background-repeat: no-repeat;
+    background-position: left;
 }
 .buttonGoogle2:hover{
     background-color: black;
     color: white;
+    transition: .3s;
 }
 .alreadyMember{
-    margin-top: 20px;
-    
+    margin-top: 40px;
+    font-family: 'Josefin Slab', serif;
     font-weight: lighter;
 }
 .buttonBack{
@@ -154,6 +175,8 @@ input{
     background-color: #ffffff;
     text-decoration: underline;
     color: #7704D0;
+    font-family: 'Josefin Slab', serif;
+    font-size: 17px;
 }
 .inputFullname{
     background-color: #D9D9D9;
@@ -163,7 +186,8 @@ input{
 .inputEmail{
     background-color: #D9D9D9;  
     border: 0;
-    margin: 3px;
+    margin: 3px 3px 10px 3px;
+    
 }
 .inputPassword{
     background-color: #D9D9D9;
@@ -171,12 +195,20 @@ input{
     margin: 3px;
 }
 label{
-    color:rgba(0, 0, 0, 0.48);
+    color:rgba(0, 0, 0, 0.7);
     justify-content: left;
+    font-family: 'Josefin Slab', serif;
 }
 p{
-    color: red;
-    width: ;
+    color: #d0044b;
+    width: 170px;
+    font-size: 10px;
+    /* font-style: italic; */
+    letter-spacing: .8px;
+    font-family: 'Prompt';
+    text-align: justify;
+    margin: .2px;
+
 }
 
 /* ---------------------------- Pantalla wall ordenador ---------------------------- */
@@ -192,78 +224,92 @@ p{
     width: 90%;
     height: 95%;
     background-color: white;
-    /* border: red solid 2px; */
     margin-left: 70px;
     border-radius: 10px;
 }
+
 .logoWall{
     width: 250px;
     margin-left: 70px;
 }
 .logOut{
     width: 90px;
-    height: 40px;
-    background-color: white;
+    height: 30px;
+    background-color: #7d1c6b;
+    color: white;
     margin-right: 70px;
     margin-top: 50px;
     border-radius: 5px;
-    border: grey 1px solid;
+    border: none;
     float: right;
+    box-shadow: 1px 1px  rgb(0, 0, 0, .5);
 }
 .newPost{
-    margin-left: 30%;
-    height: 100px;
+    height: 150px;
     width: 500px;
+    background-color: white;
+    padding-left: 20px;
 }
 .postMade{
     /* border: red 2px solid; */
-    width: 700px;
-    margin-left: 20%;
-    /* padding: 10px; */
-
 }
 .eachPost{
-    border: #fcafff 2px solid;
-    border-radius: 5px;
-    background-color: antiquewhite;
-    margin: 20px;
+    border-radius: 10px;
+    background-color: #7d1c6b;
+    margin: 20px;    
+    box-shadow: 0px 4px 4px rgb(0, 0, 0, .5) ;
+    height: 150px;
 }
 .contenido__post{
-    margin-left: 20px;
-    margin-top: 10px;
-    margin-right: 20px;
     padding: 30px;
-    background-color: white;
+    background-color: rgb(255, 255, 255, .9);
+    height: 62px;
 }
 .contenedorPublicacion{
     position: relative;
+}
+.formulario{
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .contenido_publicacion{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: black;
 }
 .postPublicationBoton{
-    margin-left: -80px ;
-    margin-top: 85px;
+    margin-top: -249px;
     position: absolute;
+    width: 400px;
+    height: 25px;
+    background-color: rgb(222, 162, 217);
+    color: black;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 2px rgb(0, 0, 0, .7);
+}
+.postPublicationBoton:hover{
+    background-color: #7d1c6b;
+    color: white;
+    transition: .3s;
 }
 .btn-delete, .btn-edit, .btn-like{
     margin-top: 0px;
-    margin-left: -2px;
+    margin-left: -1px;
     margin-right: -2px;
     width: 220px;
     height: 28px;
-    border: gray 1px solid;
-    border-bottom: 0px;
-    background-color: antiquewhite;
+    border: transparent;
+    color: white;
+    background-color: rgb(255, 255, 255, .2);
 }
 .btn-delete:hover, .btn-edit:hover, .btn-like:hover{
-   
-    border: white 1px solid;
-    border-bottom: 0px;
-    background-color: black;
+    background-color: #3c0331;
     color: white;
-    transition: 1ms;
+    transition: .5s;
 }
 
 @media (max-width: 500px){
@@ -280,10 +326,9 @@ p{
         padding: 0px 0px 0px 0px;
     }
     .logoUnidas {
-        /* left: 110px;
-        top: 193px;
-        width: 180px; */
         height: 100px;
+        margin-top: -90px;
+        margin-bottom: 50px;
         visibility: visible;
     }
     
@@ -307,12 +352,11 @@ p{
         margin: 6px;
         padding: 5px;
         width: 170px;
-        background: #d9d9d9;
+        background-color: white;
         border-radius: 5px;
-        border: none;
+        border: black 1.5px solid;
     }
     .buttonLogin {
-        border: #f38bfe solid 2px;
         width: 180px;
         height: 30px;
         padding: 2px;
@@ -324,29 +368,38 @@ p{
     }
     .buttonGoogle {
         width: 180px;
+        height: 30px;
         padding: 2px;
         border-radius: 5px;
         display: block;
         margin-top: 20px;
         margin-bottom: 25px;
         background-color: #ffffff;
+        background-image: url('../src/Ggoogle.png') ;
+        background-size: 17px;
+        background-repeat: no-repeat;
+        background-position: left;
     }
     .buttonLogin:hover,
     .buttonGoogle:hover {
-        background-color: #7704d0;
+        background-color: black;
         color: white;
         cursor: pointer;
+        transition: .3s;
     }
     
     .textRegister {
-        font-weight: lighter;
+        /* font-weight: lighter; */
         margin: top 40px;
+        font-family: 'Josefin Slab', serif;
     }
     .buttonRegister {
         border: 0px;
         background-color: #ffffff;
         color: #7704d0;
         text-decoration: underline;
+        font-family: 'Josefin Slab', serif;
+        font-size: 17px;
     }
 /* -------------------------------- Register en Telefono -------------------------------- */
     .unidasLetrasRegister{
@@ -397,7 +450,6 @@ p{
         display: block;
     }
     .buttonRegister2{
-        border:  #F38BFE solid 2px;
         width: 180px;
         height: 30px;
         padding: 2px;
@@ -409,17 +461,23 @@ p{
     }
     .buttonGoogle2{
         width: 180px;
+        height: 30px;
         padding: 2px;
         border-radius: 5px;
         display: block;
         margin-top: 20px;
         margin-bottom: 25px;
         background-color: #ffffff;
+        background-image: url('../src/Ggoogle.png') ;
+        background-size: 17px;
+        background-repeat: no-repeat;
+        background-position: left;
     }
     .buttonRegister2:hover, .buttonGoogle2:hover{
-        background-color: #7704D0;
+        background-color: black;
         color: white;
         cursor: pointer;
+        transition: .3s;
     }
     .alreadyMember{
         margin-top: 30px;
@@ -429,101 +487,100 @@ p{
         border: 0px;
         background-color: #ffffff;
         color: #7704D0;
-        font-size: 16px;
+        font-size: 18px;
         text-decoration: underline;
     }
     /* -------------------------------- Wall en Telefono -------------------------------- */
-.logoWall, .logOut{
-    height: 1px;
-    width: 1px;
-    visibility: hidden;
-}
-.cuadroBlancoWall{
-    background-color: white;
-    border-radius: 40px;
-    width: 85%;
-    height: 85%;
-    /* top: 100px; */
-    margin: 5%;
-    padding: 0px 15px;
-    /* float:right; */
-    /* display: block; */
-    align-items: center;
-    position: relative;
-    box-shadow: 4px 0px 4px rgba(0, 0, 0.25, 0.25);
-}
-.logoWallMobile{
-    width: 130px;
-    height: 70px;
-    margin: 7px;
-    visibility:visible;
-}
-.logOutMobile{
-    width: 90px;
-    height: 30px;
-    background-color: #FCAFFF;
-    margin-top: 30px;
-    border-radius: 5px;
-    border: grey 1px solid;
-    float: right;
-    visibility:visible;
-}
-.newPost{
-    margin-left: 10%;
-    height: 100px;
-    width: 80%;
-}
-.postMade{
-    /* border: red 2px solid; */
-    width: 80%;
-    margin-left: 10%;
-    /* padding: 10px; */
+    .logoWall, .logOut{
+        height: 1px;
+        width: 1px;
+        visibility: hidden;
+    }
+    .cuadroBlancoWall{
+        background-color: white;
+        border-radius: 40px;
+        width: 85%;
+        height: 85%;
+        /* top: 100px; */
+        margin: 5%;
+        padding: 0px 15px;
+        /* float:right; */
+        /* display: block; */
+        align-items: center;
+        position: relative;
+        box-shadow: 4px 0px 4px rgba(0, 0, 0.25, 0.25);
+    }
+    .logoWallMobile{
+        width: 130px;
+        height: 70px;
+        margin: 7px;
+        visibility:visible;
+    }
+    .logOutMobile{
+        width: 90px;
+        height: 25px;
+        background-color: #7d1c6b;
+        color:white;
+        margin-top: 30px;
+        border-radius: 5px;
+        border: none;
+        box-shadow: 1px 1px  rgb(0, 0, 0, .5);
+        float: right;
+        visibility:visible;
+    }
+    .newPost{
+        /* margin-left: 10%; */
+        height: 100px;
+        width: 80%;
+        background-color: white;
+        border: rgb(0, 0, 0, .5) solid 1px;
+    }
+    .postMade{
+        /* border: red 2px solid; */
+    }
+    .eachPost{
+        /* border: #d0044b solid 1px; */
+        border-radius: 5px;
+        background-color:#7d1c6b;
+        margin: 15px;
+        box-shadow: 0px 4px 4px rgb(0, 0, 0, .5) ;
+        height: 110px;
+    }
+    .contenido__post{
+        padding: 30px;
+        background-color: rgb(255, 255, 255, .9);
+        height: 22px;
+        width: 250px;
+    }
+    .contenedorPublicacion{
+        position: relative;
+    }
+    .contenido_publicacion{
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color: black;
+    }
+    .postPublicationBoton{
+        margin-top: -195px;
+        position: absolute;
+        width: 300px;
+        height: 25px;
+        background-color: rgb(222, 162, 217);
+        color: black;
+        font-weight: bold;
+        letter-spacing: 1px;
+        border-radius: 5px;
+        border: none;
+        box-shadow: 0px 2px rgb(0, 0, 0, .7);
+    }
+    .btn-delete, .btn-edit, .btn-like{
+        margin-top: 0px;
+        margin-left: -2px;
+        margin-right: -2px;
+        width: 33.7%;
+        height: 28px;
+        border: transparent;
+        color: white;
+        background-color: rgb(255, 255, 255, .2);
+    }
 
-}
-.eachPost{
-    border: #fcafff 2px solid;
-    border-radius: 5px;
-    background-color: antiquewhite;
-    margin: 10px;
-    /* width: 100%; */
-}
-.contenido__post{
-    margin-left: 20px;
-    margin-top: 10px;
-    margin-right: 20px;
-    padding: 30px;
-    background-color: white;
-}
-.contenedorPublicacion{
-    position: relative;
-}
-.contenido_publicacion{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: black;
-}
-.postPublicationBoton{
-    margin-left: -80px ;
-    margin-top: 85px;
-    position: absolute;
-
-}
-.btn-delete, .btn-edit, .btn-like{
-    margin-top: 0px;
-    margin-left: -2px;
-    margin-right: -2px;
-    width: 33.7%;
-    height: 28px;
-    border: gray 1px solid;
-    border-bottom: 0px;
-    background-color: antiquewhite;
-}
-.btn-delete:hover, .btn-edit:hover, .btn-like:hover{
-   
-    border: white 1px solid;
-    border-bottom: 0px;
-    background-color: black;
-    color: white;
-    transition: 1ms;
-}
-
-}
+    }

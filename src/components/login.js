@@ -23,7 +23,7 @@ export const login = (onNavigate) => {
 
   const buttonGoogle = document.createElement('button');
   buttonGoogle.classList = 'buttonGoogle';
-  buttonGoogle.textContent = 'Iniciar sesión con Google';
+  buttonGoogle.textContent = 'Iniciar con Google';
 
   const buttonRegister = document.createElement('button');
   buttonRegister.classList = 'buttonRegister';
@@ -69,6 +69,8 @@ export const login = (onNavigate) => {
         }
         if (errorCode === 'auth/wrong-password') {
           alertContrasena.innerHTML = 'Contraseña no coincide con la registrada';
+        } else {
+          alertEmpty.innerHTML = 'Ningún campo debe quedar vacío';
         }
       });
   });

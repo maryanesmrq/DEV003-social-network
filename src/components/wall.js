@@ -1,3 +1,4 @@
+import { async } from 'regenerator-runtime';
 import {
   postPublication, consultaTiempoReal, deletePost, editPost, obtenerDatos,
 } from '../lib/functionFirebase.js';
@@ -41,41 +42,73 @@ export const wall = (onNavigate) => {
   const contenedorPublicacion = document.createElement('div');
   contenedorPublicacion.classList = 'contenedorPublicacion';
 
-  let editStatus = false;
-  let id = '';
+  const formulario = document.createElement('form');
+  formulario.id = 'formulario';
+  formulario.classList = 'formulario';
 
   // profilePic PENDIENTE
   // poner listener al boton publicar
   // ejecutar postPublication(autor, contenido) <-- contenido y autor
 
   // cambiar querySnapshot cambiarla por onSnapshot
-  function paintData(doc) {
-    const data = doc.data();
-    data.id = doc.id;
-    const postBox = `
-      <div class='contenedor__post'>
-        <div class='contenido__post'>
-          <p class='contenido_publicacion'> ${data.contenido} </p>
-        </div>
-        <div class='contenedor__btns'>
-          <button class='btn-like'>👍🏻 Me gusta</button>
-          <button class='btn-edit' data-id='${data.contenido}'>✏️ Editar</button>
-          <button class='btn-delete' value='${data.id}' data-id='${data.id}'>❌ Eliminar</button>
-        </div>
-      </div>
-    `;
 
-    const eachPost = document.createElement('div');
-    eachPost.classList = 'eachPost';
-    eachPost.innerHTML = postBox;
-    postMade.appendChild(eachPost);
+  // --------------- Btn Eliminar --------------------------
 
-    // --------------- Btn Eliminar --------------------------
-    const btnsDelete = document.querySelectorAll(`[data-id='${data.id}']`);
+  // se recorren con el .forEach a dichos botones
+  // btnsEdit.forEach((btn) => {
+  // Al dar clic en el boton se leera lo siguiente
+  // btn.addEventListener('click', () => {
+  // Igualamos el contenido de newPost al que tiene la publicación
+  // newPost.value = data.id;
+  // El texto del boton "Publicar" cambiara a "Editar"
+  // postPublicationBoton.innerText = 'Guardar';
+  // Al dar clic en 'Editar' se reemplace el nuevo texto en la publicación
+  // postPublicationBoton.addEventListener('click', ({ target: { dataset } }) => {
+  // editPost(dataset.id, newPost.value);
+  // });
+
+  // -------------- CODIGO ANTIGUO - SE GUARDARA MOMENTANEAMENTE -----------------------
+  // Se realiza una constante que iguale a la obtención de datos
+  // la función esta trayendo un documento con mucha info dentro
+  // const post = obtenerDatos(dataset.id);
+  // Para convertir el documento a datos debo aplicar .data() a la const anterior
+  // const data2 = post.data();
+  // console.log(post.data());
+  // console.log(e.target.dataset.id);
+  // });
+  // });
+  let editStatus = false;
+  let id = '';
+
+  consultaTiempoReal((querySnapshot) => {
+    postMade.innerHTML = '';
+    querySnapshot.forEach((doc) => {
+      const data = doc.data();
+      data.id = doc.id;
+      const postBox = `
+          <div class='contenedor__post'>
+            <div class='contenido__post'>
+              <p class='contenido_publicacion'> ${data.contenido} </p>
+            </div>
+            <div class='contenedor__btns'>
+              <button class='btn-like'>👍🏻 Me gusta</button>
+              <button class='btn-edit' data-id='${doc.id}'>✏️ Editar</button>
+              <button class='btn-delete' value='${data.id}' data-id='${data.id}'>❌ Eliminar</button>
+            </div>
+          </div>
+        `;
+      const eachPost = document.createElement('div');
+      eachPost.classList = 'eachPost';
+      eachPost.innerHTML = postBox;
+      postMade.appendChild(eachPost);
+    });
+
+    // ------------- Btn Eliminar ------------------
+    const btnsDelete = document.querySelectorAll('.btn-delete');
     btnsDelete.forEach((btn) => {
-      // console.log(e.target);
+    // console.log(e.target);
       btn.addEventListener('click', ({ target: { dataset } }) => {
-        // await deletePost(e.target.dataset.id);
+      // await deletePost(e.target.dataset.id);
 
         // pregunta o alerta antes de eliminar
         // eslint-disable-next-line no-restricted-globals
@@ -89,51 +122,56 @@ export const wall = (onNavigate) => {
 
         // await deletePost(e.target.dataset.id);
 
-        // si da clic en el boton "cancelar" lo devuelve a la pantalla con publicaciones
+      // si da clic en el boton "cancelar" lo devuelve a la pantalla con publicaciones
       });
     });
 
     // --------------- Btn Editar --------------------------
     // se reconocen todos los botones editar como const btnsEdit
-    const btnsEdit = document.querySelectorAll(`[data-id='${data.contenido}']`);
-    // se recorren con el .forEach a dichos botones
+    const btnsEdit = document.querySelectorAll('.btn-edit');
     btnsEdit.forEach((btn) => {
-      // Al dar clic en el boton se leera lo siguiente
-      btn.addEventListener('click', () => {
-        // Igualamos el contenido de newPost al que tiene la publicación
-        newPost.value = data.contenido;
-        // El texto del boton "Publicar" cambiara a "Editar"
-        postPublicationBoton.innerText = 'Editar';
-        // Al dar clic en 'Editar' se reemplace el nuevo texto en la publicación
-        postPublicationBoton.addEventListener('click', ({ target: { dataset } }) => {
-          editPost(dataset.id, newPost.value);
-        });
+      btn.addEventListener('click', async (e) => {
+        const post = await obtenerDatos(e.target.dataset.id);
+        // console.log(post);
+        const data2 = post.data();
+        console.log(data2);
 
-        // -------------- CODIGO ANTIGUO - SE GUARDARA MOMENTANEAMENTE -----------------------
-        // Se realiza una constante que iguale a la obtención de datos
-        // la función esta trayendo un documento con mucha info dentro
-        // const post = obtenerDatos(dataset.id);
-        // Para convertir el documento a datos debo aplicar .data() a la const anterior
-        // const data2 = post.data();
-        // console.log(post.data());
-        // console.log(e.target.dataset.id);
+        formulario.newPost.value = data2.contenido;
+        // console.log(post.contenido);
+        // console.log(data2.contenido);
+
+        editStatus = true;
+        id = post.id;
+        // postPublicationBoton.innerText = 'Guardar';
+        // console.log(postPublicationBoton);
       });
     });
-  }
-
-  consultaTiempoReal((querySnapshot) => {
-    postMade.innerHTML = '';
-    querySnapshot.forEach((doc) => {
-      const datos = doc;
-      paintData(datos);
+    formulario.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const taskDescription = newPost.value;
+      if (taskDescription !== '') {
+        if (!editStatus) {
+          postPublication(taskDescription);
+        } else {
+          editPost(id, {
+            contenido: taskDescription,
+          });
+          editStatus = false;
+        }
+        formulario.reset();
+      }
     });
   });
 
-  postPublicationBoton.addEventListener('click', async (e) => {
-    if (newPost.value.length > 0) {
-      postPublication(newPost.value);
-    }
-  });
+  // postPublicationBoton.addEventListener('click', async () => {
+  //   if (newPost.value.length > 0) {
+  //     postPublication(newPost.value);
+  //   }
+  // const contenido = newPost.value
+  // if(!editStatus){
+
+  // }
+  // });
   // resultado es que aparezca el post en pantalla
   // });
   // console.log(currentUserInfo());
@@ -150,9 +188,8 @@ export const wall = (onNavigate) => {
   cuadroBlancoWall.appendChild(logoMobile);
   cuadroBlancoWall.appendChild(logOutMobile);
   cuadroBlancoWall.appendChild(contenedorPublicacion);
-  contenedorPublicacion.appendChild(newPost);
-  contenedorPublicacion.appendChild(postPublicationBoton);
-  cuadroBlancoWall.appendChild(postMade);
+  formulario.append(newPost, postPublicationBoton, postMade);
+  contenedorPublicacion.appendChild(formulario);
 
   return wallDiv;
 };

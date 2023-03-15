@@ -50,7 +50,13 @@ export function postPublication(contenido) {
 
 // export const currentUserInfo = () => auth.currentUser;
 
-export const consultaTiempoReal = (obtenerData) => onSnapshot(collection(db, 'publicaciones'), obtenerData);
+// export const consultaTiempoReal = (obtenerData) =>
+// onSnapshot(collection(db, 'publicaciones'), obtenerData);
+
+export const consultaTiempoReal = (callback) => {
+  const queryPost = (collection(db, 'publicaciones'));
+  onSnapshot(queryPost, callback);
+};
 
 // export const deletePost = (id) => db.collection('publicaciones').doc(id).delete();
 export const deletePost = (id) => deleteDoc(doc(db, 'publicaciones', id));
